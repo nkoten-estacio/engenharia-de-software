@@ -70,26 +70,123 @@
             </small>
 
             <h3>funcionalidade</h3>
-            <p>
+            <ol>
+               <li>
+                  <h4>gerenciamento de processos</h4>
+                  <p>cria, executa e termina processos</p>
+               </li>
+               <li>
+                  <h4>gerenciamento de memoria</h4>
+                  <p>aloca e desaloca memoria para processos</p>
+               </li>
+               <li>
+                  <h4>gerenciamento de dispositivos</h4>
+                  <p>controla o acesso do dispositivo</p>
+               </li>
+               <li>
+                  <h4>gerenciamento de arquivos</h4>
+                  <p>controla o acesso, organiza os srquivos</p>
+               </li>
+            </ol>  
+         </section>
+         <section labe="system calls">
+            <h2>System Calls</h2>
+            <h3>
+               POSIX
+               <br>
+              <small>conjunto de system calls padronizados da UNIX</small>
+            </h3>
+            <h3>
+               WINAPI
+               <br>
+               <small>system calls para windows</small>
+               <br>
+               <t>
+                  mais de 1000 system calls, cada versão do windows são implementadas novas system calls
+               </t>
+            </h3>
+         </section>
+         <section label="modos de acesso">
+            <h2>Modos de Acesso</h2>
+
+            <h3>
+               Modo Kernel
+               <t>kernel opera com acesso total ao hardware e aos recursos do sistema</t>
+            </h3>
+
+            <h3>
+               Modo Usuário
+               <t>aplicações e programas opera, acesso limitado, impedidos de acessar diretamente o hardware</t>
+            </h3>
+
+            <gerenciamento section>  
+               <h3>gerenciamento de memória e acesso a recursos</h3>
                <ol>
+                  <li>faz alocação e desalocação de memória para os processos</li>
+                  <li>gerencia os dispositivos de hardware para que os recursos sejam utilizados corretamente</li>
+                  <li>controla o acesso de arquivos para quem tem ou não permissão</li>
+               </ol>
+            </gerenciamento>  
+
+            <escalonamento section>
+               <h3>Escalonamento de Processos e Threads</h3>
+               <ol>
+                  <li>Planejamento de qual processo tem que ser executado </li>
+                  <li>é escalonado, a execução daquele processo é priorizada</li>
+                  <li>o gerenciamento de threads é feito dentro desse mesmo processo</li>
+               </ol>
+            </escalonamento>
+
+            <comunicacao section>
+               <h3>Comunicação entre processos e Sincronização</h3>
+               <ul>
                   <li>
-                     <h4>gerenciamento de processos</h4>
-                     <p>cria, executa e termina processos</p>
+                     <b>mensagem</b>
+                     <t>processos compartilham dados e coordenem suas ações</t>  
                   </li>
                   <li>
-                     <h4>gerenciamento de memoria</h4>
-                     <p>aloca e desaloca memoria para processos</p>
+                     <b>sincronização</b>
+                     <t>o sistema tem que fornecer mecanismos para sincronizar o acesso aos recursos compartilhados, e evitar conflitos de de processos diferentes acessarem os mesmos dados</t>
                   </li>
                   <li>
-                     <h4>gerenciamento de dispositivos</h4>
-                     <p>controla o acesso do dispositivo</p>
+                     <b>semáforos</b>
+                     <t>Estrutura de dados que controla os recursos que são compartilhados e garantem que só um processo por vez tenha acesso ao recurso</t>
                   </li>
                   <li>
-                     <h4>gerenciamento de arquivos</h4>
-                     <p>controla o acesso, organiza os srquivos</p>
+                     <b>mutex</b>
+                     <t>mecanismo de exclusão mútua, permite que apenas um processo por vez tenha acesso ao recurso</t>
                   </li>
-               </ol>  
-            </p>
+               </ul>
+            </comunicacao>
+
+            <virtualizacao section>
+               <h3>Virtualização e Isolamento de Ambientes</h3>
+               <ul>
+                  <li>
+                     <b>Virtualização</b>
+                     <t>implementação de um programa "o virtualizador" rodando em modo kernel em cima do SO</t>
+                  </li>
+                  <li>
+                     <b>Contêiners</b>
+                     <t>separa um pedaço da memória, que só pode ser acessado por esse contêiner</t>
+                  </li>
+                  <li>
+                     <b>Nuvem</b>
+                     <t>milhares de hardwares rodando um SO multiescalável compartilhado em rede, com virtualização rodando e conteinerização</t>
+                  </li>
+               </ul>
+            </virtualizacao>
+            
+            <arquiteturas-de-kernel section>
+               <h2>Arquiteturas de Kernel</h2>
+               
+               <ul>
+                  <li>monolítico</li>
+                  <li>em camadas</li>
+                  <li>MicroKernel</li>
+                  <li>exokernel</li>
+               </ul>
+            </arquiteturas-de-kernel>
          </section>
       </article>
    </body>

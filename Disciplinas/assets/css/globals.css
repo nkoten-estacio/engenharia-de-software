@@ -77,7 +77,10 @@ t1, t2, t3, t4, t5, t6, t7 {
    word-wrap: break-word;
    color: #27f;
 }
-t { font-size: 1rem; }
+t { 
+   font-size: 1rem; 
+   font-weight: 500;
+}
 t1 { font-size: 3rem; color: #e33; }
 t2 { font-size: 2.5rem; color: #f29; }
 t3 { font-size: 2.25rem; }
