@@ -13,7 +13,7 @@ const
 addEventListener( "load", () => {
    $$( "[link]" ).forEach( link => {
       let state;
-      if( link.getAttribute( "blank" ) ) {
+      if( link.hasAttribute( "blank" ) ) {
          state = "_blank";
       } else {
          state = "_self";
