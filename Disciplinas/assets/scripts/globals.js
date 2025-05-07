@@ -2,6 +2,7 @@
 
 "use strict";
 
+//import * from "../../../js/browser.js"
 const 
    _ = ( ...a ) => console.log( ...a )   
    ,

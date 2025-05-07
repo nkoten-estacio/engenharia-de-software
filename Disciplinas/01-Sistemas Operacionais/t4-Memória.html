@@ -13,7 +13,70 @@
       <h1>Tema 4 - Memória</h1>
 
       <article>
-         
+         <section>
+            <h3>
+               <t>descobrir o endereço lógico</t>
+            </h3>
+             <p>
+               <label >
+                  <t>tamanho da página em bytes</t>
+                  <input type="number" id="i_pageSize" placeholder="0" autofocus>
+               </label>
+            </p>
+           <p>
+               <label >
+                  <t>endereço lógico</t>
+                  <input type="number" id="i_logicAddress" placeholder="0">
+               </label>
+            </p>
+            <p>
+               <input type="number" id="i_res" value="">
+            </p>
+            <p>
+               <input type="submit" id="i_submit" value="calcular">
+            </p>
+         </section>    
       </article>
+
+      <script>
+         const
+            GetLogicPageNumber = ( logicAddress, pageSize ) => {
+               return /*page =*/ ( logicAddress / pageSize ).toFixed(0);
+            }
+            ,
+            GetDeslocamentoDentroDaPagina = ( logicAddress, pageSize ) => {
+               return /*deslocamento =*/ logicAddress % pageSize;
+            }
+            ,
+            GetFisicAddress = ( logicAddress, pageSize ) => {
+               return /*fisicAddress =*/ ( GetLogicPageNumber( logicAddress, pageSize ) ) * pageSize + ( GetDeslocamentoDentroDaPagina( logicAddress, pageSize ) );
+            }
+         ;
+
+         addEventListener( "load", () => {
+            i_submit.addEventListener( "click", () => {
+               const 
+                  pageSize = document.querySelector( "#i_pageSize" ).value
+                  ,
+                  logicAddress = document.querySelector( "#i_logicAddress" ).value
+                  ,
+                  page = GetLogicPageNumber( logicAddress, pageSize )
+                  ,
+                  deslocamento = GetDeslocamentoDentroDaPagina( logicAddress, pageSize )
+                  ,
+                  endereçoFisico = GetFisicAddress( logicAddress, pageSize )
+               ;
+
+               i_res.value = endereçoFisico;
+
+               console.log( `==-==-==-==-==-==-==-==-==
+pageSize: ${ pageSize }
+logicAddress: ${ logicAddress }
+page: ${page}
+deslocamento: ${deslocamento}
+endereço físico: ${endereçoFisico}` );
+            } );
+         } );
+      </script> 
    </body>
 </html>
