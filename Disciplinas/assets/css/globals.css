@@ -42,7 +42,8 @@ html {
    line-height: 1.5;
    -webkit-text-size-adjust: 100%;
    
-   background-color: #1d1b26;
+   /*background-color: #1d1b26;*/
+   background-color: #16141d;
    background-image:   linear-gradient( 0deg, #00000000 24px, #313339 25px ),
    linear-gradient( 90deg, #00000000 24px, #313339 25px );
    background-size: 25px 25px;
@@ -60,34 +61,47 @@ body {
    font-size: 14px;
    font-weight: 400;
    font-family: Inter;
-   /* height: 16px; */
    line-height: 150%;
-   /* margin-top: 4px; */
-   /* display: inline-block; */
    text-overflow: ellipsis;
-   /* white-space: nowrap; */
-   /* overflow: hidden; */
 }
 
 a { text-decoration: none !important; color: var( --amber-01, #ffab00 ); }
 t1, t2, t3, t4, t5, t6, t7 {
-   font-size: 3em;
+   /*font-size: 3em;*/
    font-weight: bold;
    line-height: 1.2;
    word-wrap: break-word;
-   color: #27f;
+   /*color: #27f;*/
 }
 t { 
-   font-size: 1rem; 
-   font-weight: 500;
+   display: inline;
+   /*font-size: 1rem; */
+   /*font-weight: 500;*/
+   /*font-weight: inherit;*/
 }
-t1 { font-size: 3rem; color: #e33; }
-t2 { font-size: 2.5rem; color: #f29; }
-t3 { font-size: 2.25rem; }
-t4 { font-size: 1.8rem; }
-t5 { font-size: 1.5rem; }
-t6 { font-size: 1.25rem; }
-t7 { font-size: 1.1rem; }
+t1, h1 { 
+   font-size: 2.5em; /*16px * 2.5 40 */
+   color: #e33; 
+}
+t2, h2 { 
+   font-size: 1.875em; /*40 * .75 30px */
+   color: #f29;
+   line-height: 1.3;
+}
+t3, h3 { 
+   font-size: 1.5em; /*30 * .8 24px */
+   line-height: 1.3;
+}
+t4, h4 { 
+   font-size: 1.25em; /*24 * .83339 20px * */
+   line-height: 1.3;
+}
+t5, h5 { 
+   font-size: 1em; /*16px */
+}
+t6, h6 { 
+   font-size: .8em; /*16 * .8 12.8px */
+}
 p { word-wrap: break-word; }
 li { margin: 0.8ch 0; font-size: inherit; }
 li > :nth-child( 1n ) {
@@ -171,6 +185,6 @@ content, [content] {
    --c-pd: 1em;
    /*width: calc( 100% - calc( var( --c-pd ) * 2 ) );*/
    padding: var( --c-pd );
-   background-color: #234;
-   background-color: #181621;
+   /*background-color: #234;*/
+   /*background-color: #181621;*/
 }
