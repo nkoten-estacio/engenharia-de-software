@@ -7,9 +7,22 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title></title>
       <link href="css/style.css" rel="stylesheet">
+      <link href="../assets/css/globals.css" rel="stylesheet">
       <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+      <style>
+         .oi {
+            color: #37f;
+         }
+
+         [content] {
+            padding: 1em;
+         }
+      </style>
    </head>
-   <body>
+   <body content>
+      <h1>
+         <t>Tópicos de Big Data em Python</t>
+      </h1>
       <app></app>
    
       <script type="importmap">
@@ -23,24 +36,17 @@
       <script type="text/babel" data-type="module">
          import React, { useState } from "react";
          import { createRoot } from "react-dom/client";
+         // import "./assets/html.css";
 
          const 
             COLORS = ["green", "gray"]
          ;
             
-         function Cell() {
-         }
-         function _Cells() {
-         }
-         const Cells = React.memo(_Cells);
-         
-         function GetColors( ...{ props } ) {
+         function Section( { ...props } ) {
             return( <>
-               { 
-                  COLORS && COLORS.map( color => ( <>
-                     <p id="p{color}">{ color }</p>
-                  </> ) ) 
-               }
+               <section content="">
+                  { props.children }
+               </section>
             </> );
          }
          
@@ -48,7 +54,7 @@
             return( 
                <>
                   <p>{ "oi" }</p>
-                  <GetColors />
+                  <Section children=<p class="oi">iu</p> />
                </> 
             );
          }
