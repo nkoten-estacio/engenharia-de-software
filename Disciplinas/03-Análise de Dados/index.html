@@ -17,11 +17,17 @@
          [content] {
             padding: 1em;
          }
+
+         [section] > header {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+         } 
       </style>
    </head>
    <body content>
       <h1>
-         <t>Tópicos de Big Data em Python</t>
+         <t>Análise de Dados</t>
       </h1>
       <app></app>
    
@@ -44,9 +50,21 @@
             
          function Section( { ...props } ) {
             return( <>
-               <section content="">
+               <section section="" content="">
                   { props.children }
                </section>
+            </> );
+         }
+
+         function Tema( { ...props } ) {
+            return( <>
+               <Section>
+                  <header>
+                     <h5>{ props.tema }</h5>
+                     <h3>{ props.label }</h3>
+                  </header>
+                  <p></p>
+               </Section>
             </> );
          }
          
@@ -54,17 +72,23 @@
             return( 
                <>
                   <p>{ "oi" }</p>
-                  <Section children=<p class="oi">iu</p> />
-
-                  <h2>Tema 6 - Big Data Analytics</h2>
-                  <h3>Propósito</h3>
-                  <p>Compreender conceitos e processos de Big Data Analytics, assunto que permeia desde a análise de dados até a própria inteligência artificial que a instrumentaliza, e que tem ganhado popularidade com o avanço das tecnologias para tratamento de Big Data.</p>
-                  <h3>Objetivos</h3>
-                  <ul>
-                     <li>Reconhecer o processo de KDD no contexto da inteligência artificial.</li>
-                     <li>Aplicar técnicas de aprendizado de máquina com Scikit-Learn.</li>
-                     <li>Aplicar técnicas de aprendizado profundo com TensorFlow.</li>
-                  </ul>
+                  <Tema tema="Tema 2" label="Análise de Dados Quantitativos" 
+                  />
+                  <Tema 
+                     tema="Tema 3" label="Probabilidades"
+                  />
+                  <Tema 
+                     tema="Tema 4" label="Variáveis Aleatórias Discretas Unidimensionais"
+                  />
+                  <Tema
+                     tema="Tema 5" label="Variáveis Aleatórias Contínuas Unidimenssionais"
+                  />
+                  <Tema
+                     tema="Tema 6" label="Testes de Hipótese"
+                  />
+                  <Tema
+                     tema="Tema 7" label="Modelo Básico de Regressão Linear"
+                  />
                </> 
             );
          }
