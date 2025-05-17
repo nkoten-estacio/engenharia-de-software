@@ -1,0 +1,274 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questões e Respostas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        .questao {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .pergunta {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .alternativas {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+
+        .alternativa {
+            margin-bottom: 5px;
+        }
+
+        .correta {
+            font-weight: bold;
+            color: green;
+        }
+
+        .explicacao {
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="questao">
+        <p class="pergunta">1a Questão: A respeito das aplicações de fluxos de dados, selecione a opção correta.</p>
+        <ul class="alternativas">
+            <li class="alternativa">Transações bancárias, como o serviço de PIX. [cite: 2]</li>
+            <li class="alternativa correta">Serviços sob demanda, como serviços de filme online. [cite: 2, 3]</li>
+            <li class="alternativa">Serviços de compras online [cite: 3]</li>
+            <li class="alternativa">Serviço de correio eletrônico [cite: 3]</li>
+            <li class="alternativa">Reapresentação de programas de televisão. [cite: 3]</li>
+        </ul>
+        <p class="explicacao">Explicação: Os serviços de fluxo de dado de aplicações de mídia de streaming são arquivos enviados
+            em partes por serviço e reproduzidos
+            por um cliente conforme a entrega continua.
+            As demais opções estão erradas, pois são exemplos de serviços em que os dados
+            já foram gerados, ou que são usados apenas esporadicamente. [cite: 4, 5]
+        </p>
+    </div>
+
+    <div class="questao">
+        <p class="pergunta">2a Questão: Selecione a opção correta que contém a principal plataforma de tecnologia de nuvem
+            que é usada como referência para as
+            outras plataformas.</p>
+        <ul class="alternativas">
+            <li class="alternativa">Microsft Azure [cite: 7]</li>
+            <li class="alternativa">Oracle Cloud [cite: 7]</li>
+            <li class="alternativa correta">Amazon AWS [cite: 7]</li>
+            <li class="alternativa">IBM Cloud [cite: 7]</li>
+            <li class="alternativa">Google Cloud [cite: 7]</li>
+        </ul>
+        <p class="explicacao">Explicação: A plataforma Amazon AWS foi a primeira plataforma Cloud e até hoje é considerada
+            como principal referéncia do mercado.
+            As outras plataformas também são muito importantes e, junto com a Amazon, detém boa fatia do mercado. [cite: 7, 8]
+        </p>
+    </div>
+
+    <div class="questao">
+        <p class="pergunta">3a Questão: O data lake é composto por camadas e níveis.
+            Selecione a opção correta a respeito da camada responsável por fazer a
+            marcação dos dados do Data Lake.</p>
+        <ul class="alternativas">
+            <li class="alternativa">Camada de governança [cite: 10]</li>
+            <li class="alternativa">Camada de segurança [cite: 10]</li>
+            <li class="alternativa">Camada de gerenciamento de dados [cite: 10]</li>
+            <li class="alternativa">Camada de gerenciamento do ciclo de vida da informação [cite: 10]</li>
+            <li class="alternativa correta">Camada de Metadados [cite: 10]</li>
+        </ul>
+        <p class="explicacao">Explicação: O Data Lake possui três camadas: a de governança e segurança de dados, a de
+            metadados e a de gerenciamento do ciclo de
+            vida da informação que tratam, respectivamente, da política de segurança de dados, da marcação e identificação
+            dos dados e
+            das regras de armazenamento. [cite: 10]
+        </p>
+    </div>
+
+    <div class="questao">
+        <p class="pergunta">4a Questão: Selecione a opção correta a respeito do nível do Data Lake responsável por fornecer
+            dados para a análise de negócios.</p>
+        <ul class="alternativas">
+            <li class="alternativa">Nível de gerenciamento [cite: 12]</li>
+            <li class="alternativa">Nivel de Metadados [cite: 12]</li>
+            <li class="alternativa">Nível de governança [cite: 12]</li>
+            <li class="alternativa">Nível de admissão [cite: 12]</li>
+            <li class="alternativa correta">Nível de consumo [cite: 12]</li>
+        </ul>
+        <p class="explicacao">Explicação: O Data Lake possui três níveis: o de admissão, o de gerenciamento e o de consumo
+            que tratam, respectivamente, dos serviços
+            de aquisição de dados, da identificação e localização dos dados e que fornecem dados para ser consumidos por
+            aplicações de
+            apoio à tomada de decisão. [cite: 12]
+        </p>
+    </div>
+
+    <div class="questao">
+        <p class="pergunta">5a Questão: Observe o trecho de código abaixo
+            import numpy as np
+
+            from pyspark import SparkContext
+            spark_contexto SparkContext()
+            a = np.array([1, 5, 1, 6, 4, 7, 7])
+            teste = spark_contexto.parallelize(a)
+
+            Selecione a opção correta a respeito dele.
+        </p>
+        <ul class="alternativas">
+            <li class="alternativa">A utilização do SparkContext é opcional. [cite: 14]</li>
+            <li class="alternativa correta">A variável "teste" corresponde a um RDD. [cite: 14]</li>
+            <li class="alternativa">O objetivo do trecho de código é contar a quantidade de ocorrências dos valores do vetor
+                "a". [cite: 15]</li>
+            <li class="alternativa">A execução do trecho de código vai gerar um erro. [cite: 16]</li>
+            <li class="alternativa">A linha "spark_contexto.parallelize(a)" aplica a técnica MapReduce para processar o vetor
+                "a". [cite: 17]</li>
+        </ul>
+        <p class="explicacao">Explicação: Gabarito: A variável "teste corresponde a um RDD.
+
+            Justificativa: O trecho de código está sintaticamente correto.
+            O objetivo é criar um RDD que, no caso, é representado pela
+            variável "teste" para isso é obrigatório utilizar o "SparkContext".
+            O pacote "numpy" foi utilizado por causa da variável vetor "a". [cite: 18, 19, 20]
+        </p>
+    </div>
+
+    <div class="questao">
+        <p class="pergunta">6a Questão: O paradigma MapReduce é uma estratégia de computação com capacidade de processar
+            grandes conjuntos de dados de
+            maneira distribuída em várias máquinas.
+            Em relação à técnica MapReduce, selecione a opção que é responsável por
+            consolidar os resultados produzidos ao longo do processamento.</p>
+        <ul class="alternativas">
+            <li class="alternativa">Processamento [cite: 23]</li>
+            <li class="alternativa">Mapeamento [cite: 23]</li>
+            <li class="alternativa">Separação [cite: 23]</li>
+            <li class="alternativa correta">Redução [cite: 23]</li>
+            <li class="alternativa">Agregação [cite: 23]</li>
+        </ul>
+        <p class="explicacao">Explicação: Gabarito: Redução
+
+            Justificativa: A função de redução agrupa os pares após a fase de embaralhamento concluindo o processamento dos
+            dados.
+            O MapReduce é uma técnica clássica de programação distribuída e é bastante utilizada por diversos frameworks como o
+            Spark,
+            por exemplo. [cite: 23, 24]
+        </p>
+    </div>
+
+    <div class="questao">
+        <p class="pergunta">7a Questão: Dado que Felipe quer fazer a junção entre dois conjuntos de dados e escreveu o
+            seguinte código:
+
+            import pandas as pd
+
+            df1 = pd.DataFrame( 'Ikey': ['foo', 'bar', 'baz', 'foo'], 'value': [1, 2, 3, 5]})
+
+            df2 = pd.DataFrame({'rkey': ['foo', 'bar', 'baz', 'foo'], 'value': [5, 6, 7, 8]})
+
+            df1.merge(df2, left_on='lkey', right_on='rkey')
+
+            Qual destas alternativas descreve as saídas do código?</p>
+        <ul class="alternativas">
+            <li class="alternativa">1¿0 conjunto resultante terá colunas Ikey, value_x, rkey, value_y
+
+                II¿O código não executará, pois Filipe não definiu os sufixos de coluna
+
+                III¿O resultado do código em questão retornará um pd.
+                Series juntando os conjuntos pela Ikey e rkey. [cite: 26, 27]
+            </li>
+            <li class="alternativa">Apenas as opções II e III estão corretas. [cite: 27]</li>
+            <li class="alternativa">Apenas as opções I e III estão corretas. [cite: 28]</li>
+            <li class="alternativa">Apenas a opção III está correta. [cite: 28]</li>
+            <li class="alternativa correta">Apenas a opção I está correta. [cite: 28]</li>
+        </ul>
+        <p class="explicacao">Explicação: A afirmativa I está corretíssima uma vez que o resultado terá as colunas chaves e
+            as colunas valores acrescidas dos sufixos
+            padrões, porquanto não há declaração explícita.
+            A afirmativa II é incorreta, por mais que seja uma boa prática definir os nomes
+            dos sufixos de suas junções, não sendo impeditivo à biblioteca executar a junção sem elas.
+            A afirmativa III é incorreta, pois o
+            resultado de uma junção é um pd.DataFrame, uma vez que estamos falando de operações fechadas assim como a álgebra
+            que
+            rege o bom funcionamento de um sistema, i.e., como a entrada é de DataFrames, a saída obrigatoriamente também tem
+            que ser
+            de DataFrames. [cite: 29, 30, 31]
+        </p>
+    </div>
+
+    <div class="questao">
+        <p class="pergunta">8a Questão: No mundo de Big Data, temos dados os mais variados possíveis, e sua classificação é
+            fundamental para um cientista de
+            dados.
+            As notas que compõem o histórico escolar de um aluno são classificadas como que tipo de dados?</p>
+        <ul class="alternativas">
+            <li class="alternativa">Temporais [cite: 34]</li>
+            <li class="alternativa correta">Numéricos [cite: 34]</li>
+            <li class="alternativa">Categóricos [cite: 34]</li>
+
+            <li class="alternativa">Semi-Estruturados [cite: 34]</li>
+            <li class="alternativa">Atemporais [cite: 34]</li>
+        </ul>
+        <p class="explicacao">Explicação: O correto é classificar como dados categóricos, pois a nota de um aluno mesmo que
+            possa ser operada por funções de soma,
+            média etc., representa um conceito ou extrato/proporção de aprendizado de um aluno, um 8 muitas das vezes significa
+            que o
+            aluno aprendeu 80% da matéria por exemplo, ou implica na condição de apto, ou reprovado.
+            O tipo numérico seria correto se não
+            tivesse o contexto implicito de categoria, por isso devemos ter cuidado ao modelarmos nossos dados. [cite: 34, 35]
+        </p>
+    </div>
+
+    <div class="questao">
+        <p class="pergunta">9a Questão: Dentre as inúmeras bibliotecas da linguagem Python qual destas é a que abstrai
+            conceitos de engenharia de aprendizado de
+            máquina e implementa modelos de ML?</p>
+        <ul class="alternativas">
+            <li class="alternativa">Numpy [cite: 37]</li>
+            <li class="alternativa">OS [cite: 37]</li>
+            <li class="alternativa">Pandas [cite: 37]</li>
+            <li class="alternativa correta">Scikit-Learn [cite: 37]</li>
+            <li class="alternativa">BeautifulSoup [cite: 37]</li>
+        </ul>
+        <p class="explicacao">Explicação: O Python tem um conjunto quase sem fim de bibliotecas disponíveis que podem nos
+            ajudar a modelar qualquer problema de
+            ciência de dados, mas é com o scikit-learn principalmente que implementamos modelos de machine learning de forma
+            facilitada. [cite: 37]
+        </p>
+    </div>
+
+    <div class="questao">
+        <p class="pergunta">10a Questão: Qual o processo irmão do KDD que é utilizado comumente no âmbito industrial?</p>
+        <ul class="alternativas">
+            <li class="alternativa">SIGKDD. [cite: 38]</li>
+            <li class="alternativa">SIGM. [cite: 38]</li>
+            <li class="alternativa">KDM. [cite: 38]</li>
+            <li class="alternativa">KDD-DM. [cite: 38]</li>
+            <li class="alternativa correta">CRISP-DM. [cite: 38]</li>
+        </ul>
+        <p class="explicacao">Explicação: O processo de tamanho similar ao KDD cujo âmbito industrial se beneficia mais
+            devido à suas etapas de entendimento do
+            negócio é o CRISP-DM, processo esse que, diferentemente do KDD, contempla a entrega do artefato de aprendizado de
+            máquina. [cite: 39]
+        </p>
+    </div>
+
+</body>
+
+</html>
