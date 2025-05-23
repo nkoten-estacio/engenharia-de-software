@@ -40,7 +40,7 @@
          }
       </script>
       <script type="text/babel" data-type="module">
-         import React, { useState } from "react";
+         import React, { useState, useEffect } from "react";
          import { createRoot } from "react-dom/client";
          // import "./assets/html.css";
 
@@ -104,6 +104,20 @@
          }
          
          function App() {
+            const 
+               inputs = {
+                  dado: 0,
+               }
+               ,
+               [ Dado, setDado ] = useState( 1 )
+            ;
+
+            function DadoHandler() {
+               event.preventDefault();
+               setDado( event.target.value );
+               console.log( event.target.value );
+            }
+
             return( 
                <>
                   <p>{ "oi" }</p>
@@ -115,7 +129,7 @@
                               <b>dado</b> <br />
                               <t>[ 160, 165, 166, 168, 170, 170, 172, 174, 175, 175, 175, 178, 180, 180, 182, 183, 185, 185, 187, 188, 188, 190, 191, 195, 198, 200, ]</t>
                               <br />
-                              <input type="number" value="" />
+                              <input type="number" value={ Dado } placeholder={ Dado } onChange={ ( v ) => DadoHandler() } />
                            </li>
                            <li>
                               <b>n</b> <br />
