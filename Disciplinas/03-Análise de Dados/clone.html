@@ -1,0 +1,447 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Big Data em Python</title>
+    <link rel="stylesheet" href="App.css">
+    <style App="App">
+/* Cores e Variáveis */
+:root {
+    --header-bg: #20232a; /* Azul escuro do cabeçalho */
+    --header-text: #ffffff; /* Texto branco do cabeçalho */
+    --main-bg: #f5f7f9; /* Fundo principal da área de conteúdo */
+    --card-bg: #ffffff; /* Fundo dos cards (questão e barra lateral) */
+    --border-color: #e0e6ed; /* Cor da borda suave */
+    --button-primary-bg: #007bff; /* Azul do botão "Finalizar prova" */
+    --button-primary-text: #ffffff;
+    --button-hover-bg: #0056b3;
+    --option-border: #d4d8e0; /* Borda das opções de resposta */
+    --option-hover-bg: #f0f2f5;
+    --option-selected-bg: #007bff; /* Azul da opção selecionada */
+    --option-selected-text: #ffffff;
+    --text-dark: #333333;
+    --text-medium: #666666;
+    --text-light: #999999;
+}
+
+body {
+    background-color: var(--main-bg);
+}
+
+#root {
+    display: flex;
+    flex-direction: column; /* Organiza header e content verticalmente */
+    height: 100vh; /* Ocupa a altura total da viewport */
+    box-shadow: 0 0 15px rgba(0,0,0,0.1); /* Sombra suave para o container principal */
+    background-color: var(--main-bg); /* Garante que o fundo principal seja visível */
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.header-left, .header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-left span {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.header-center {
+    flex-grow: 1; /* Permite que o centro ocupe o espaço disponível */
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--header-text); /* Garantir cor */
+}
+
+.header-right > div {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.header-icon {
+    font-size: 1.5em; /* Tamanho dos ícones */
+    margin-left: 10px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.header-icon:hover {
+    opacity: 1;
+}
+
+.header-dark-mode-toggle {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #4a4a4a; /* Cor do botão de toggle */
+    cursor: pointer;
+}
+
+/* Main Content Area */
+.main-content {
+    display: flex;
+    flex-grow: 1; /* Permite que o conteúdo principal ocupe o restante do espaço */
+    padding: 20px;
+    gap: 20px; /* Espaçamento entre as colunas */
+    background-color: var(--main-bg);
+    overflow-y: auto; /* Permite rolagem se o conteúdo for maior que a tela */
+}
+
+/* Question Section */
+.question-section {
+    flex: 3; /* Ocupa mais espaço */
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.question-number {
+    background-color: var(--option-selected-bg);
+    color: var(--option-selected-text);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.mark-for-review-button {
+    background-color: #f0f2f5;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 0.9em;
+    color: var(--text-medium);
+}
+
+.mark-for-review-button:hover {
+    background-color: #e0e2e5;
+}
+
+.question-text {
+    font-size: 1.1em;
+    color: var(--text-dark);
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.option {
+    border: 1px solid var(--option-border);
+    border-radius: 5px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    color: var(--text-dark);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.option:hover {
+    background-color: var(--option-hover-bg);
+    border-color: #b0b4bb;
+}
+
+.option.selected {
+    background-color: var(--option-selected-bg);
+    color: var(--option-selected-text);
+    border-color: var(--option-selected-bg);
+}
+
+.option-letter {
+    font-weight: bold;
+    margin-right: 15px;
+    width: 25px; /* Para alinhar o texto */
+    text-align: center;
+}
+
+/* Sidebar Section */
+.sidebar-section {
+    flex: 1; /* Ocupa menos espaço */
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.timer-section {
+    background-color: #f5f5f5; /* Fundo suave para o timer */
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.timer-display {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.timer-button {
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+    color: var(--text-medium);
+}
+
+.question-navigation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); /* Colunas flexíveis */
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.question-nav-item {
+    background-color: #f0f2f5;
+    border: 1px solid var(--option-border);
+    border-radius: 5px;
+    width: 40px; /* Tamanho fixo para os botões */
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+
+.question-nav-item.active {
+    background-color: var(--option-selected-bg);
+    color: var(--option-selected-text);
+    border-color: var(--option-selected-bg);
+}
+
+.question-status-summary {
+    font-size: 0.9em;
+    color: var(--text-medium);
+    margin-bottom: 20px;
+}
+
+.question-status-summary span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.finish-button {
+    background-color: var(--button-primary-bg);
+    color: var(--button-primary-text);
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.finish-button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* Icones */
+/* No React, você geralmente usaria uma biblioteca de ícones (como Font Awesome ou Material Icons).
+   Para este exemplo, vou usar Unicode characters ou placeholders simples para simular. */
+.icon-placeholder {
+    font-family: 'Material Icons Outlined', sans-serif; /* Se você incluir o Material Icons */
+    font-size: 1.5em;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+}
+/* Se você não quiser incluir uma biblioteca de ícones, use caracteres unicode ou svgs */
+.icon-menu::before { content: '\2261'; /* &#8801; */ }
+.icon-text::before { content: '\F11F'; /* Placeholder para texto */ } /* Não é um caractere universal */
+.icon-moon::before { content: '\25D0'; /* &#9680; */ } /* Half moon */
+.icon-thumb-up::before { content: '\1F44D'; /* 👍 */ }
+    </style>
+    <style>
+        /* Estilos globais para resetar e configurar a fonte como no print */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            background-color: #f0f2f5; /* Cor de fundo geral, um cinza claro */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Alinha ao topo para evitar centralização vertical em telas grandes */
+            min-height: 100vh;
+        }
+        #root {
+            width: 100%;
+            max-width: 1200px; /* Limite a largura para simular a tela do print */
+            margin: 20px; /* Margem para não colar nas bordas */
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!--<script type="text/babel" src="App.js"></script>-->
+    <script>
+      
+
+import React, { useState } from 'react'; // Importa React e useState
+import ReactDOM from 'react-dom/client'; // Importa ReactDOM
+
+function App() {
+    const [selectedOption, setSelectedOption] = useState('A'); // Estado para a opção selecionada
+    const [markedForReview, setMarkedForReview] = useState(false);
+
+    // Dados fictícios para as opções da questão
+    const options = [
+        { letter: 'A', text: 'sample' },
+        { letter: 'B', text: 'filter' },
+        { letter: 'C', text: 'random' },
+        { letter: 'D', text: 'mapRandom' },
+        { letter: 'E', text: 'distinct' },
+    ];
+
+    // Dados fictícios para a navegação das questões
+    const totalQuestions = 10;
+    const currentQuestion = 1;
+    const answeredQuestions = 10;
+    const blankQuestions = 0;
+
+    return (
+        <div className="app-container">
+            {/* Header */}
+            <header className="header">
+                <div className="header-left">
+                    <span>SM2</span>
+                    <span className="header-center">Tópicos De Big Data Em Python</span>
+                </div>
+                <div className="header-right">
+                    <span className="header-icon icon-text"></span> {/* Placeholder para ícone de texto */}
+                    <span className="header-icon icon-menu"></span> {/* Placeholder para ícone de menu */}
+                    <div className="header-dark-mode-toggle"></div> {/* Placeholder para toggle de dark mode */}
+                </div>
+            </header>
+
+            {/* Main Content */}
+            <main className="main-content">
+                {/* Question Section */}
+                <section className="question-section">
+                    <div className="question-header">
+                        <div className="question-number">1</div>
+                        <button
+                            className="mark-for-review-button"
+                            onClick={() => setMarkedForReview(!markedForReview)}
+                        >
+                            Marcar para revisão
+                        </button>
+                    </div>
+                    <p className="question-text">
+                        Selecione a opção correta que contenha uma operação responsável por retornar um subconjunto aleatório dos
+                        dados de entrada.
+                    </p>
+                    <div className="options-list">
+                        {options.map((option) => (
+                            <div
+                                key={option.letter}
+                                className={`option ${selectedOption === option.letter ? 'selected' : ''}`}
+                                onClick={() => setSelectedOption(option.letter)}
+                            >
+                                <span className="option-letter">{option.letter}</span>
+                                <span className="option-text">{option.text}</span>
+                            </div>
+                        ))}
+                    </div>
+                    <button className="feedback-button">
+                        <span className="icon-thumb-up"></span> {/* Placeholder para ícone de polegar */}
+                        Feedback
+                    </button>
+                </section>
+
+                {/* Sidebar Section */}
+                <aside className="sidebar-section">
+                    <div className="timer-section">
+                        <div className="timer-display">
+                            <span style={{color: '#ff6347', marginRight: '5px'}}>0</span>
+                            hora
+                            <span style={{color: '#ff6347', margin: '0 5px'}}>0</span>
+                            min
+                            <span style={{color: '#ff6347', marginLeft: '5px'}}>0</span>
+                            seg
+                        </div>
+                        <button className="timer-button">Exibir</button>
+                    </div>
+
+                    <div className="question-status">
+                        <p style={{fontSize: '0.9em', color: 'var(--text-medium)'}}>Questão {currentQuestion} de {totalQuestions}</p>
+                    </div>
+
+                    <div className="question-navigation-grid">
+                        {Array.from({ length: totalQuestions }, (_, i) => i + 1).map((qNum) => (
+                            <div
+                                key={qNum}
+                                className={`question-nav-item ${qNum === currentQuestion ? 'active' : ''}`}
+                            >
+                                {qNum}
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="question-status-summary">
+                        <span>Respondidas ({answeredQuestions})</span>
+                        <span>Em branco ({blankQuestions})</span>
+                    </div>
+
+                    <button className="finish-button">Finalizar prova</button>
+                </aside>
+            </main>
+        </div>
+    );
+}
+
+const container = document.getElementById('root');
+const root = ReactDOM.createRoot(container);
+root.render(<App />);
+    </script>
+</body>
+</html>

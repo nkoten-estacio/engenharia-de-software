@@ -1,8 +1,5 @@
 
-<!--
-      const quartil1 = math.quantileSeq( sortedNumbers, 0.25 );
-      const quartil3 = math.quantileSeq( sortedNumbers, 0.75 );
--->
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -10,10 +7,103 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title></title>
       <link href="css/style.css" rel="stylesheet">
-      <link href="../assets/css/globals.css" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Reenie+Beanie&display=swap" rel="stylesheet">
+      <!--<link href="../assets/css/globals.css" rel="stylesheet">-->
       <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.4.1/math.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.30.0/plotly.min.js"></script>
+      <style>
+body {
+   margin: 0;
+   padding: 0;
+   background-color: rgb(245, 245, 245);
+}
+
+           .appbar {
+              box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 8px;
+                            padding-left: 5em !important;
+    padding-right: 5em !important;
+
+           }
+           .appbar-right {
+              display: flex;
+              align-items: center;
+              gap: 2em;
+           }
+
+           .divv {
+              display: grid;
+              place-items: center;
+              padding-left: 1em;
+              padding-right: 1em;
+              transform: scale(2.5);
+              color: #7773;
+           }
+
+           .quest {
+              box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 8px 0px;
+           }
+
+           .qbtn {
+              display: flex;
+              align-items: center;
+              width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid rgb(224, 224, 224);
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    padding: .75rem;
+    gap: .75rem;
+           }
+
+           .title {
+               font-family: Montserrat;
+               font-size: 24px;
+           }
+
+           .subt {
+               font-family: Inter;
+               color: #555 !important;
+           }
+
+           .qbtnn {
+              display: grid;
+              place-items: center;
+              border-radius: 50em;
+              height: 2em;
+              aspect-ratio: 1;
+              background-color: #7772;
+              border: 1px solid #7775;
+           }
+           .qbtnns {
+              display: grid;
+              place-items: center;
+              border-radius: 50em;
+              height: 2em;
+              aspect-ratio: 1;
+              color: #ffffff;
+              background-color: #144bc8;
+              border: 1px solid #144bc8;
+           }
+
+
+           .qstcard {
+              box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 8px 0px;
+           }
+
+           .btnc {
+              background-color: #7772;
+              border: #7775 1px solid;
+              aspect-ratio: 1;
+           }
+
+           .submit {
+              background-color: #144bc8;
+           }
+      </style>
       <style>
 /* Estilos gerais para o contêiner principal */
 .data-analyzer-container {
@@ -107,6 +197,7 @@ p {
   /* Plotly.js vai renderizar o SVG/canvas aqui dentro */
 }
       </style>
+
    </head>
    <body content>
       <app></app>
@@ -125,49 +216,6 @@ p {
          import React, { useState, useEffect, useRef } from "react";
          import { createRoot } from "react-dom/client";
 
-         function Section( { ...props } ) {
-            return( <>
-               <section section="" content="">
-                  { props.children }
-               </section>
-            </> );
-         }
-
-         function P( { ...props } ) {
-            return( <>
-               <p>{ props.children }</p>
-            </> );
-         }
-
-         function Text( { ...props } ) {
-            return( <>
-               {
-                  props.type === "h1" ? (
-                     <h1>{ props.children }</h1>
-                  ) : props.type === "h2" ? (
-                     <h2>{ props.children }</h2>
-                  ) : props.type === "h3" ?(
-                     <h3>{ props.children }</h3>
-                  ) : props.type === "h4" ? (
-                     <h4>{ props.children }</h4>
-                  ) : props.type === "h5" ? (
-                     <h5>{ props.children }</h5>
-                  ) : props.type === "h6" ? (
-                     <h6>{ props.children }</h6>
-                  ) : (
-                     <t>{ props.children }</t>
-                  )
-               }
-            </> );
-         }
-         
-         function AppBar() {
-            return( <>
-               <header className="flex bg-black h-[80px]">
-                  
-               </header>
-            </> );
-         }
 
          function DataAnalyzer() {
   // Estado para armazenar a entrada de dados do usuário
@@ -305,16 +353,96 @@ p {
     </div>
   );
 }
-         
-         function App() {
-            return( 
-               <>
-                  <p>{ "oi" }</p>
-                  <DataAnalyzer />
-               </> 
-            );
-         }
-         
+
+
+
+function Header() {
+  return (
+    <div className="appbar bg-gray-100 py-4 px-6 flex items-center justify-between">
+      <div className="appbar-l flex items-center">
+        <span className="title text-xl font-semibold mr-4">SM2</span>
+        <span className="divv">|</span>
+        <span className="subt">Análise de Dados</span>
+      </div>
+      <div className="appbar-right flex items-center">
+        
+<button aria-disabled="false" alt="Icone de aumentar o texto" data-element="button_aumenta-texto" data-info="DGT0229" data-lift="lft-iconbutton" data-testid="icon-text" role="button" tabindex="0" type="button" className="css-13yrnvg"><svg viewBox="0 0 24 24" className="type" width="26" height="26" aria-hidden="true" focusable="false" role="button" alt="Icone de aumentar o texto"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 4C3.25 3.58579 3.58579 3.25 4 3.25H20C20.4142 3.25 20.75 3.58579 20.75 4V7C20.75 7.41421 20.4142 7.75 20 7.75C19.5858 7.75 19.25 7.41421 19.25 7V4.75H12.75V19.25H15C15.4142 19.25 15.75 19.5858 15.75 20C15.75 20.4142 15.4142 20.75 15 20.75H9C8.58579 20.75 8.25 20.4142 8.25 20C8.25 19.5858 8.58579 19.25 9 19.25H11.25V4.75H4.75V7C4.75 7.41421 4.41421 7.75 4 7.75C3.58579 7.75 3.25 7.41421 3.25 7V4Z" fill="currentColor"></path></svg></button>
+
+        <button type="button" className="w-8 h-8 css-13yrnvg"><svg viewBox="0 0 24 24" class="target" width="26" height="26" aria-hidden="true" focusable="false" role="button" alt="Icone de modo foco"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12ZM12 6.75C9.1005 6.75 6.75 9.1005 6.75 12C6.75 14.8995 9.1005 17.25 12 17.25C14.8995 17.25 17.25 14.8995 17.25 12C17.25 9.1005 14.8995 6.75 12 6.75ZM5.25 12C5.25 8.27208 8.27208 5.25 12 5.25C15.7279 5.25 18.75 8.27208 18.75 12C18.75 15.7279 15.7279 18.75 12 18.75C8.27208 18.75 5.25 15.7279 5.25 12ZM12 10.75C11.3096 10.75 10.75 11.3096 10.75 12C10.75 12.6904 11.3096 13.25 12 13.25C12.6904 13.25 13.25 12.6904 13.25 12C13.25 11.3096 12.6904 10.75 12 10.75ZM9.25 12C9.25 10.4812 10.4812 9.25 12 9.25C13.5188 9.25 14.75 10.4812 14.75 12C14.75 13.5188 13.5188 14.75 12 14.75C10.4812 14.75 9.25 13.5188 9.25 12Z" fill="currentColor"></path></svg></button>
+        <button aria-disabled="false" alt="Icone de alto contraste" data-element="button_alto-contraste" data-info="DGT0229" data-lift="lft-iconbutton" data-testid="icon-contrast" role="button" tabindex="0" type="button" className="w-8 h-8 css-13yrnvg"><svg width="26" height="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg" role="button" alt="Icone de alto contraste">
+<path className="st0" fill-rule="evenodd" clip-rule="evenodd" d="M11 1.75C11 1.75 11 5.89137 11 11C11 16.1086 11 20.25 11 20.25C16.1086 20.25 20.25 16.1086 20.25 11C20.25 5.89137 16.1086 1.75 11 1.75ZM0.25 11C0.25 5.06294 5.06294 0.25 11 0.25C16.9371 0.25 21.75 5.06294 21.75 11C21.75 16.9371 16.9371 21.75 11 21.75C5.06294 21.75 0.25 16.9371 0.25 11Z" fill="#121212"></path>
+</svg></button>
+                      </div>
+    </div>
+  );
+}
+
+function QuestionArea() {
+  return (
+    <div  className="qstcard quest bg-white rounded-[10px] shadow p-6 mt-4">
+      <div className="flex justify-between items-center mb-4">
+        <div className="rounded-full bg-gray-200 w-8 h-8 flex items-center justify-center">
+          <span>1</span>
+        </div>
+        <button className="bg-yellow-300 text-black py-2 px-4 rounded">Marcar para revisão</button>
+      </div>
+      <p className="mb-4">Selecione a opção correta que contenha a operação responsável por retornar um subconjunto aleatório dos dados de entrada.</p>
+      <div className="space-y-2">
+        <button className="qbtn w-full bg-[#c2d4ff] border-[#144bc8] border-[2px] py-3 px-4 rounded-[12px] text-left"><div className="qbtnns">A</div> sample</button>
+        <button className="qbtn w-full bg-gray-100 text-gray-800 py-3 px-4 rounded-[12px] text-left"><div className="qbtnn">B</div> filter</button>
+        <button className="qbtn w-full bg-gray-100 text-gray-800 py-3 px-4 rounded-[12px] text-left"><div className="qbtnn">C</div> random</button>
+        <button className="qbtn w-full bg-gray-100 text-gray-800 py-3 px-4 rounded-[12px] text-left"><div className="qbtnn">D</div> mapRandom</button>
+        <button className="qbtn w-full bg-gray-100 text-gray-800 py-3 px-4 rounded-[12px] text-left"><div className="qbtnn">E</div> distinct</button>
+      </div>
+    </div>
+  );
+}
+
+function Sidebar() {
+  return (
+    <div className="bg-white rounded-md shadow p-4 mt-4">
+      <div className="flex items-center justify-between mb-4">
+        <div>
+          <span className="font-semibold">Questão</span> <span className="text-gray-600">1 de 10</span>
+        </div>
+        <button className="flex items-center text-gray-600">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-1">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+          </svg>
+          Exibir
+        </button>
+      </div>
+      <div className="grid grid-cols-5 gap-2 mb-4">
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(number => (
+          <button key={number} className={`btnc rounded-md w-full h-10 flex items-center justify-center ${number === 1 ? 'bg-[#c2d4ff] border-[1px] border-[#144bc8]' : 'bg-gray-200 text-gray-800'}`}>{number}</button>
+        ))}
+      </div>
+      <div className="flex justify-between text-sm text-gray-600 mb-4">
+        <span>Respondidas (1)</span>
+        <span>Em branco (9)</span>
+      </div>
+      <button className="submit text-white py-3 rounded-md w-full">Finalizar prova</button>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Header />
+      <div className="container mx-auto py-8 grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="lg:col-span-3">
+          <QuestionArea />
+        <DataAnalyzer />
+        </div>
+        <div className="lg:col-span-1">
+          <Sidebar />
+        </div>
+      </div>
+    </div>
+  );
+}
+
          createRoot( /* ReactDOMClient.createRoot( */
             document.querySelector( "app" )
          ).render( <App /> );
