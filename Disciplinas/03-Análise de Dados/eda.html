@@ -1,0 +1,316 @@
+
+<!--
+      const quartil1 = math.quantileSeq( sortedNumbers, 0.25 );
+      const quartil3 = math.quantileSeq( sortedNumbers, 0.75 );
+-->
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title></title>
+      <link href="css/style.css" rel="stylesheet">
+      <link href="../assets/css/globals.css" rel="stylesheet">
+      <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.4.1/math.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.30.0/plotly.min.js"></script>
+      <style>
+* Estilos gerais para o contêiner principal */
+.data-analyzer-container {
+  font-family: Arial, sans-serif; /* Fonte padrão */
+  max-width: 600px; /* Largura máxima do contêiner */
+  margin: 40px auto; /* Centraliza o contêiner na página */
+  padding: 20px; /* Preenchimento interno */
+  border: 1px solid #ccc; /* Borda leve */
+  border-radius: 8px; /* Cantos arredondados */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  text-align: center; /* Centraliza o texto */
+  background-color: #f9f9f9; /* Cor de fundo leve */
+}
+
+/* Estilos para o título principal */
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Estilos para parágrafos */
+p {
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Estilos para a área de texto de entrada de dados */
+.data-input {
+  width: calc(100% - 20px); /* Ocupa quase 100% da largura com padding */
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: vertical; /* Permite que o usuário redimensione a altura */
+}
+
+/* Estilos para o botão de análise */
+.analyze-button {
+  background-color: #007bff; /* Azul primário */
+  color: white; /* Texto branco */
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer; /* Cursor de mão ao passar por cima */
+  transition: background-color 0.3s ease; /* Transição suave de cor */
+}
+
+.analyze-button:hover {
+  background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+
+/* Estilos para mensagens de erro */
+.error-message {
+  color: red;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* Estilos para o contêiner de resultados */
+.results-container {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fff;
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+.results-container h2 {
+  color: #007bff;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.results-container p {
+  margin-bottom: 10px;
+}
+
+.results-container p strong {
+  color: #333;
+}
+
+/* Estilos para o contêiner do boxplot */
+.boxplot-container {
+  width: 100%;
+  height: 300px; /* Altura do gráfico */
+  margin-top: 20px;
+  /* Plotly.js vai renderizar o SVG/canvas aqui dentro */
+}
+      </style>
+   </head>
+   <body content>
+      <app></app>
+   
+      <!-- Tailwind CSS via CDN (versão play, para prototipagem) -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script type="importmap">
+         {
+           "imports": {
+             "react": "https://esm.sh/react@19.0.0-rc-58af67a8f8-20240628",
+             "react-dom/client": "https://esm.sh/react-dom@19.0.0-rc-58af67a8f8-20240628/client"
+           }
+         }
+      </script>
+      <script type="text/babel" data-type="module">
+         import React, { useState, useEffect, useRef } from "react";
+         import { createRoot } from "react-dom/client";
+
+         function Section( { ...props } ) {
+            return( <>
+               <section section="" content="">
+                  { props.children }
+               </section>
+            </> );
+         }
+
+         function P( { ...props } ) {
+            return( <>
+               <p>{ props.children }</p>
+            </> );
+         }
+
+         function Text( { ...props } ) {
+            return( <>
+               {
+                  props.type === "h1" ? (
+                     <h1>{ props.children }</h1>
+                  ) : props.type === "h2" ? (
+                     <h2>{ props.children }</h2>
+                  ) : props.type === "h3" ?(
+                     <h3>{ props.children }</h3>
+                  ) : props.type === "h4" ? (
+                     <h4>{ props.children }</h4>
+                  ) : props.type === "h5" ? (
+                     <h5>{ props.children }</h5>
+                  ) : props.type === "h6" ? (
+                     <h6>{ props.children }</h6>
+                  ) : (
+                     <t>{ props.children }</t>
+                  )
+               }
+            </> );
+         }
+
+         function DataAnalyzer() {
+  // Estado para armazenar a entrada de dados do usuário
+  const [dataInput, setDataInput] = useState('');
+  // Estado para armazenar os resultados dos cálculos estatísticos
+  const [results, setResults] = useState(null);
+  // Estado para armazenar mensagens de erro
+  const [error, setError] = useState('');
+  // Ref para o elemento DOM onde o gráfico Plotly será renderizado
+  const chartRef = useRef(null);
+
+  // useEffect para renderizar/atualizar o gráfico Plotly sempre que 'results' muda
+  useEffect(() => {
+    // Só tenta renderizar o gráfico se houver resultados e a ref do chart estiver disponível
+    if (results && chartRef.current) {
+      // Cria o 'trace' para o boxplot
+      const trace = {
+        y: parseDataInput(), // Os dados brutos para o eixo Y do boxplot
+        type: 'box',        // Tipo de gráfico: boxplot
+        name: 'Distribuição dos Dados', // Nome da série no gráfico
+        boxpoints: 'all',   // Mostrar todos os pontos de dados no boxplot
+        jitter: 0.3,        // Adicionar um pouco de jitter para evitar sobreposição dos pontos
+        pointpos: -1.8      // Posição dos pontos em relação à caixa
+      };
+
+      // Define o layout do gráfico
+      const layout = {
+        title: 'Boxplot dos Dados', // Título do gráfico
+        yaxis: {
+          title: 'Valores' // Título do eixo Y
+        }
+      };
+
+      // Cria ou atualiza o gráfico Plotly no elemento referenciado
+      Plotly.newPlot(chartRef.current, [trace], layout);
+    }
+  }, [results]); // O efeito é re-executado quando 'results' muda
+
+  // Função auxiliar para parsear a string de entrada em um array de números
+  const parseDataInput = () => {
+    return dataInput
+      .split(',') // Divide a string por vírgulas
+      .map(s => s.trim()) // Remove espaços em branco de cada parte
+      .filter(s => s !== '') // Remove qualquer string vazia
+      .map(Number) // Converte cada parte para um número
+      .filter(num => !isNaN(num)); // Remove valores que não puderam ser convertidos para número
+  };
+
+  // Função principal para analisar os dados e calcular as estatísticas
+  const analyzeData = () => {
+    setError('');       // Limpa mensagens de erro anteriores
+    setResults(null);   // Limpa resultados anteriores
+
+    const numbers = parseDataInput(); // Pega os números parseados
+
+    // Validação básica: verifica se há números e se são válidos
+    if (numbers.length === 0) {
+      setError('Por favor, insira dados numéricos válidos separados por vírgulas.');
+      return;
+    }
+
+    // Cria uma cópia dos números e os ordena para cálculos como mediana e amplitude
+    const sortedNumbers = [...numbers].sort((a, b) => a - b);
+
+    try {
+      // Realiza os cálculos estatísticos usando math.js
+      const calculatedMean = math.mean(sortedNumbers).toFixed(2);
+      const calculatedMedian = math.median(sortedNumbers).toFixed(2);
+      const calculatedMode = math.mode(sortedNumbers); // Pode retornar um array
+      const calculatedMax = math.max(sortedNumbers).toFixed(2);
+      const calculatedMin = math.min(sortedNumbers).toFixed(2);
+      const calculatedAmplitude = (calculatedMax - calculatedMin).toFixed(2);
+      const calculatedVariance = math.variance(sortedNumbers).toFixed(2); // Variância amostral por padrão
+      const calculatedStdDev = math.std(sortedNumbers).toFixed(2);       // Desvio padrão amostral por padrão
+
+      // Define os resultados no estado
+      setResults({
+        mean: calculatedMean,
+        median: calculatedMedian,
+        mode: calculatedMode.length > 0 ? calculatedMode.join(', ') : 'N/A', // Formata a moda
+        amplitude: calculatedAmplitude,
+        variance: calculatedVariance,
+        stdDev: calculatedStdDev,
+        data: numbers // Guarda os dados brutos para o boxplot no useEffect
+      });
+
+    } catch (e) {
+      // Captura e exibe erros durante o cálculo
+      setError('Ocorreu um erro ao calcular as estatísticas. Verifique seus dados.');
+      console.error(e);
+    }
+  };
+
+  // JSX: Estrutura da interface do usuário
+  return (
+    <div className="data-analyzer-container">
+      <h1>Analisador de Dados Quantitativos</h1>
+      <p>Insira seus números separados por vírgulas (ex: 3, 5, 8, 9, 10, 5, 5, 9, 4, 7)</p>
+
+      {/* Campo de texto para entrada de dados */}
+      <textarea
+        className="data-input"
+        value={dataInput}
+        onChange={(e) => setDataInput(e.target.value)}
+        placeholder="Digite seus dados aqui..."
+        rows="5"
+        cols="50"
+      />
+
+      {/* Botão para iniciar a análise */}
+      <button onClick={analyzeData} className="analyze-button">
+        Analisar Dados
+      </button>
+
+      {/* Exibe mensagem de erro se houver */}
+      {error && <p className="error-message">{error}</p>}
+
+      {/* Condicionalmente exibe os resultados e o gráfico se 'results' não for nulo */}
+      {results && (
+        <div className="results-container">
+          <h2>Resultados da Análise:</h2>
+          <p><strong>Média:</strong> {results.mean}</p>
+          <p><strong>Mediana:</strong> {results.median}</p>
+          <p><strong>Moda:</strong> {results.mode}</p>
+          <p><strong>Amplitude:</strong> {results.amplitude}</p>
+          <p><strong>Variância:</strong> {results.variance}</p>
+          <p><strong>Desvio Padrão:</strong> {results.stdDev}</p>
+
+          {/* Div onde o gráfico Plotly será renderizado */}
+          <div ref={chartRef} className="boxplot-container">
+            {/* O gráfico Plotly será inserido aqui pelo useEffect */}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+         
+         function App() {
+            return( 
+               <>
+                  <p>{ "oi" }</p>
+                  <DataAnalyzer />
+               </> 
+            );
+         }
+         
+         createRoot( /* ReactDOMClient.createRoot( */
+            document.querySelector( "app" )
+         ).render( <App /> );
+      </script>
+   </body>
+</html>
+

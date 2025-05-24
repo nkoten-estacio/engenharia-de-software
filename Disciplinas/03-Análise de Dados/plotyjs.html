@@ -1,0 +1,46 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boxplot com Plotly.js via CDN</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.30.0/plotly.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #myDiv { width: 600px; height: 400px; margin-top: 20px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h1>Boxplot de Exemplo com Plotly.js (CDN)</h1>
+    <p>Este é um exemplo simples de boxplot gerado usando Plotly.js carregado via CDN.</p>
+
+    <div id="myDiv"></div> <script>
+        // Dados para o boxplot
+        const dataForPlot = [3, 5, 8, 9, 10, 5, 5, 9, 4, 7, 7, 2, 9, 10, 3];
+
+        // Definindo o 'trace' para o boxplot
+        const trace = {
+            y: dataForPlot,
+            type: 'box',
+            name: 'Meus Dados',
+            boxpoints: 'all', // Mostrar todos os pontos
+            jitter: 0.3,
+            pointpos: -1.8
+        };
+
+        // Definindo o layout do gráfico
+        const layout = {
+            title: 'Distribuição dos Meus Dados',
+            yaxis: {
+                title: 'Valores'
+            }
+        };
+
+        // Criando o gráfico no elemento com id 'myDiv'
+        Plotly.newPlot('myDiv', [trace], layout);
+    </script>
+</body>
+</html>

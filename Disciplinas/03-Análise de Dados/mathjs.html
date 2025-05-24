@@ -1,0 +1,28 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Math.js com CDN</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.4.1/math.min.js"></script> 
+    </head>
+<body>
+    <h1>Exemplo Math.js com CDN</h1>
+    <p>Abrir o console do navegador (F12) para ver os resultados.</p>
+
+    <script>
+        // Agora você pode usar a biblioteca math.js diretamente
+        const data = [3, 5, 8, 9, 10, 5, 5, 9, 4, 7, 7, 2, 9, 10, 3];
+
+        console.log("Dados:", data);
+        console.log("Média:", math.mean(data));
+        console.log("Mediana:", math.median(data));
+        console.log("Moda:", math.mode(data));
+        console.log("Amplitude (Max - Min):", math.max(data) - math.min(data));
+        console.log("Variância (amostra):", math.variance(data));
+        console.log("Desvio Padrão (amostra):", math.std(data));
+    </script>
+</body>
+</html>
