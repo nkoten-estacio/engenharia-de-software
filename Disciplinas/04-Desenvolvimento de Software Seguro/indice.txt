@@ -1,0 +1,34 @@
+
+disciplina: Desenvolvimento de Software Seguro.
+temas:
+Tema 1 - Princípios de Software Seguro.
+proposito: Com a popularidade de áreas como a ciência de dados, aprendizado de máquina, Big Data e inteligência de negócios, houve um aumento significativo de garantir a segurança dos dados, afinal de contas, eles são a matéria-prima para essas áreas. Nesse sentido, é importante conhecer os vários aspectos que devem estar presentes em um software seguro, pois é um assunto extremamente atual e muito valorizado no mercado de trabalho.
+objetivos:
+Reconhecer a relação entre os princípios de segurança e o software seguro.
+Identificar os princípios de design seguro de software.
+Reconhecer os elementos da cadeia de suprimentos.
+
+Tema 2 - Questões de Implementação Para Software Seguro
+proposito: O conhecimento das diversas técnicas, ferramentas, procedimentos e protocolos de implementação para um software seguro é importante para garantir a segurança dos dados, sendo esta uma das áreas com grande demanda no mercado, em especial, de empresas que usam dados estratégicos para realizar a tomada de decisão.
+objetivos:
+Reconhecer a importância da validação de entrada.
+Analisar o processamento de dados com segurança.
+Identificar o processo de chamada de outros programas.
+Analisar o envio da saída.
+
+Tema 3 - Modelagem, Implantação e Verificação de Software seguro
+proposito: Conhecer os conceitos de desenvolvimento de software seguro relacionados à modelagem, verificação e implantação de software é fundamental para desenvolver sistemas seguros.
+objetivos:
+Reconhecer conceitos empregados na avaliação de segurança de software.
+Identificar as etapas para a modelagem de ameaças.
+Reconhecer as etapas para implantação de software seguro.
+Identificar modelos formais de segurança de software.
+
+Tema 4 - Emprego Devsecops no Ciclo de Vida do Software
+proposito: DevSecOps tem o propósito de garantir o desenvolvimento de produtos de software com o mais alto nível de qualidade e segurança possível, permitindo assim a fluidez de entrega de valor e ritmo de inovação. Velocidade requer organização, segurança e confiança entre as pessoas, para que esse fluxo contínuo de valor entregue seja atingido.
+objetivos:
+Reconhecer o DevSecOps e sua influência no ciclo de vida de desenvolvimento de software.
+Reconhecer o processo de orquestração e automação e sua importância para a prática de DevSecOps.
+Reconhecer a modelagem de ameaças, os controles de segurança e a resposta a incidentes.
+Identificar os principais conceitos e padrões de conformidade e governança, bem como a importância da auditoria para a melhoria contínua dos processos das empresas.
+

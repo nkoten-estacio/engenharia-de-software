@@ -1,0 +1,148 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title></title>
+      <link href="css/style.css" rel="stylesheet">
+      <link href="../assets/css/globals.css" rel="stylesheet">
+      <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+      <style>
+         .oi {
+            color: #37f;
+         }
+
+         [content] {
+            padding: 1em;
+         }
+
+         [section] > header {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+         } 
+      </style>
+   </head>
+   <body content>
+      <h1>
+         <t>Desenvolvimento de Software Seguro</t>
+      </h1>
+      <app></app>
+   
+      <script type="importmap">
+         {
+           "imports": {
+             "react": "https://esm.sh/react@19.0.0-rc-58af67a8f8-20240628",
+             "react-dom/client": "https://esm.sh/react-dom@19.0.0-rc-58af67a8f8-20240628/client"
+           }
+         }
+      </script>
+      <script type="text/babel" data-type="module">
+         import React, { useState, useEffect } from "react";
+         import { createRoot } from "react-dom/client";
+         // import "./assets/html.css";
+
+         const 
+            COLORS = [
+               "#2277ff",
+               "#990055",
+               "#fc0fc0",
+               "#ffab00",
+               "#993344",
+            ]
+         ;
+            
+         function Section( { ...props } ) {
+            return( <>
+               <section section="" content="">
+                  { props.children }
+               </section>
+            </> );
+         }
+
+         function P( { ...props } ) {
+            return( <>
+               <p>{ props.children }</p>
+            </> );
+         }
+
+         function Text( { ...props } ) {
+            return( <>
+               {
+                  props.type === "h1" ? (
+                     <h1>{ props.children }</h1>
+                  ) : props.type === "h2" ? (
+                     <h2>{ props.children }</h2>
+                  ) : props.type === "h3" ?(
+                     <h3>{ props.children }</h3>
+                  ) : props.type === "h4" ? (
+                     <h4>{ props.children }</h4>
+                  ) : props.type === "h5" ? (
+                     <h5>{ props.children }</h5>
+                  ) : props.type === "h6" ? (
+                     <h6>{ props.children }</h6>
+                  ) : (
+                     <t>{ props.children }</t>
+                  )
+               }
+            </> );
+         }
+
+         function Tema( { ...props } ) {
+            return( <>
+               <Section>
+                  <header>
+                     <t5 nm="">{ props.tema }</t5>
+                     <t3 nm="">{ props.label }</t3>
+                     <Text type="" children="Text"/>
+                  </header>
+                  { props.children }
+               </Section>
+            </> );
+         }
+         
+         function App() {
+            const 
+               inputs = {
+                  dado: 0,
+               }
+               ,
+               [ Dado, setDado ] = useState( 1 )
+            ;
+
+            function DadoHandler() {
+               event.preventDefault();
+               setDado( event.target.value );
+               console.log( event.target.value );
+            }
+
+            return( 
+               <>
+                  <p>{ "oi" }</p>
+                     <Tema tema="Tema 1" label="Princípios de Software Seguro">
+                     <section>
+                     </section>
+                  </Tema>
+                  <Tema 
+                     tema="Tema 2" label=""
+                  />
+                  <Tema 
+                     tema="Tema 3" label=""
+                  />
+                  <Tema
+                     tema="Tema 4" label=""
+                  />
+               </> 
+            );
+         }
+         
+         // ReactDOMClient.createRoot(
+         createRoot(
+            document.querySelector( "app" )
+         ).render( <App /> );
+      </script>
+   </body>
+</html>
+
