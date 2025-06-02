@@ -1,6 +1,6 @@
 
 
-export MaskString( data, pattern ) {
+export function MaskString( data, pattern ) {
    if( !data || !pattern ) {
       return "___";
    }
