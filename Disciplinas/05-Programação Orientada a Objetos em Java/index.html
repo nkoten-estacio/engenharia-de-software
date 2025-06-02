@@ -1,0 +1,195 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title></title>
+      <link href="css/style.css" rel="stylesheet">
+      <link href="../assets/css/globals.css" rel="stylesheet">
+      <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+      <style>
+         .oi {
+            color: #37f;
+         }
+
+         [content] {
+            padding: 1em;
+         }
+
+         [section] > header {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+         } 
+      </style>
+   </head>
+   <body content>
+      <h1>
+         <t>Programação Orientada a Objetos em Java</t>
+      </h1>
+      <app></app>
+   
+      <script type="importmap">
+         {
+           "imports": {
+             "react": "https://esm.sh/react@19.0.0-rc-58af67a8f8-20240628",
+             "react-dom/client": "https://esm.sh/react-dom@19.0.0-rc-58af67a8f8-20240628/client"
+           }
+         }
+      </script>
+      <script type="text/babel" data-type="module">
+         import React, { useState, useEffect } from "react";
+         import { createRoot } from "react-dom/client";
+         // import "./assets/html.css";
+
+         const 
+            COLORS = [
+               "#2277ff",
+               "#990055",
+               "#fc0fc0",
+               "#ffab00",
+               "#993344",
+            ]
+         ;
+            
+         function Section( { ...props } ) {
+            return( <>
+               <section section="" content="">
+                  { props.children }
+               </section>
+            </> );
+         }
+
+         function P( { ...props } ) {
+            return( <>
+               <p>{ props.children }</p>
+            </> );
+         }
+
+         function Text( { ...props } ) {
+            return( <>
+               {
+                  props.type === "h1" ? (
+                     <h1>{ props.children }</h1>
+                  ) : props.type === "h2" ? (
+                     <h2>{ props.children }</h2>
+                  ) : props.type === "h3" ?(
+                     <h3>{ props.children }</h3>
+                  ) : props.type === "h4" ? (
+                     <h4>{ props.children }</h4>
+                  ) : props.type === "h5" ? (
+                     <h5>{ props.children }</h5>
+                  ) : props.type === "h6" ? (
+                     <h6>{ props.children }</h6>
+                  ) : (
+                     <t>{ props.children }</t>
+                  )
+               }
+            </> );
+         }
+
+         function Tema( { ...props } ) {
+            return( <>
+               <Section>
+                  <header>
+                     <t5 nm="">{ props.tema }</t5>
+                     <t3 nm="">{ props.label }</t3>
+                     <Text type="" />
+                  </header>
+                  { props.children }
+               </Section>
+            </> );
+         }
+         
+         function App() {
+            const 
+               inputs = {
+                  dado: 0,
+               }
+               ,
+               [ Dado, setDado ] = useState( 1 )
+            ;
+
+            function DadoHandler() {
+               event.preventDefault();
+               setDado( event.target.value );
+               console.log( event.target.value );
+            }
+
+            return( 
+               <>
+                  <p>{ "oi" }</p>
+                  <Tema tema="Tema 2" label="Programação Orientada a Objetos em Java">
+                     <section>
+                        <h3>Objetivos</h3>
+                        <ul>
+                           <li>Descrever a definição, a manipulação e as nuances de classes e objetos em Java.</li>
+                           <li>Descrever o mecanismo de herança e polimorfismo em Java.</li>
+                           <li>Descrever os mecanismos de agrupamento de objetos em Java.</li>
+                           <li>Reconhecer os ambientes de desenvolvimento em Java e as principais estruturas da linguagem.</li>
+                        </ul>
+                     </section>
+                  </Tema>
+                  <Tema 
+                     tema="Tema 3" label="Integração Com Banco de Dados em Java">
+                     <section>
+                        <h3>Propósito</h3>
+                        <p>Obter o conhecimento da linguagem Java, puramente orientada a objetos (OO) e que está entre as mais utilizadas no mundo, é imprescindível para o profissional de Tecnologia da Informação. A orientação a objetos (OO) é um paradigma consagrado no desenvolvimento de software e empregado independentemente da metodologia de projeto – ágil ou prescritiva.</p>
+                        <h3>Objetivos</h3>
+                        <ul>
+                           <li>Identificar a hierarquia de herança em Java.</li>
+                           <li>Empregar os principais métodos de objetos em Java.</li>
+                           <li>Descrever polimorfismo em Java.</li>
+                           <li>Aplicar a criação e o uso de interfaces em Java.</li>
+                        </ul>
+                     </section>
+                  </Tema>
+                  <Tema 
+                     tema="Tema 4" label="Implementação de Tratamento de Exceções em Java">
+                     <section>
+                        <h3>Objetivos</h3>
+                        <ul>
+                           <li>Identificar os tipos de exceções em Java.</li>
+                           <li>Identificar a classe Exception de Java.</li>
+                           <li>Analisar o mecanismo de tratamento de exceções da linguagem Java.</li>
+                        </ul>
+                     </section>
+                  </Tema>
+                  <Tema
+                     tema="Tema 5" label="Programação Paralela em Java: Threads">
+                     <section>
+                        <span><a href="https://stecine.azureedge.net/repositorio/00212ti/01895/index.html?brand=estacio#imprimir">link</a><?span>
+                        <h3>Objetivos</h3>
+                        <ul>
+                           <li>Reconhecer o conceito de threads e sua importância para o processamento paralelo.</li>
+                           <li>Identificar a sincronização entre threads em Java.</li>
+                           <li>Aplicar a implementação de threads em Java.</li>
+                        </ul>
+                     </section>
+                  </Tema>
+                  <Tema 
+                     tema="Tema 6" label="Integração Com Banco de Dados em Java">
+                     <section>
+                        <span><a href="https://stecine.azureedge.net/repositorio/00212ti/01678/index.html?brand=estacio#imprimir">link</a></span>
+                        <h3>Objetivos</h3>
+                        <ul>
+                           <li>Descrever os recursos para acesso a banco de dados no ambiente Java.</li>
+                           <li>Descrever o modelo de persistência baseado em mapeamento objeto-relacional.</li>
+                           <li>Aplicar tecnologia Java para a viabilização da persistência em banco de dados.</li>
+                        </ul>
+                     </section>
+                  </Tema>
+               </> 
+            );
+         }
+         
+         // ReactDOMClient.createRoot(
+         createRoot(
+            document.querySelector( "app" )
+         ).render( <App /> );
+      </script>
+   </body>
+</html>
+
