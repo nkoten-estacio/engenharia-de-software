@@ -1,0 +1,688 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Trabalho</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="20e3210f-bf39-80af-9076-dc1b7b27bd5b" class="page sans"><header><h1 class="page-title">Trabalho</h1><p class="page-description"></p></header><div class="page-body"><p id="20e3210f-bf39-804a-8b67-d22dd0639fef" class="">
+</p><p id="20e3210f-bf39-804a-ae1e-d53be31e802b" class="">Título Proposto: </p><h1 id="20e3210f-bf39-809a-b915-c6c0d7a827fe" class="">Dados para Decidir: Capacitando Micro e Pequenas Empresas Locais em Análise de Dados</h1><p id="20e3210f-bf39-80c8-92ed-d4ca9079fce7" class="">
+</p><h2 id="20e3210f-bf39-80bd-bf41-efe81df8fe00" class="">1 - Diagnóstico e Teorização</h2><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">1.1 - Identificação das Partes Envolvidas e Parceiros</summary><div class="indented"><p id="20e3210f-bf39-8058-869c-d1dab140c15c" class="">Para esta seção, precisamos descrever as <strong>empresas que serão impactadas</strong> e os <strong>parceiros do projeto</strong>, além de como os <strong>dados foram coletados</strong> para identificá-los.</p><p id="20e3210f-bf39-80d5-be44-c8a187e83124" class="">Vamos imaginar um cenário para preencher esses detalhes:</p><p id="20e3210f-bf39-8044-b3a9-c24b073effbf" class=""><strong>Empreendedores, Microempresas e Empresas de Pequeno Porte Impactadas:</strong></p><ul id="20e3210f-bf39-8078-a40f-ed121664c5cf" class="bulleted-list"><li style="list-style-type:disc"><strong>Empresa:</strong> Padaria &quot;Pão Quente da Vovó&quot;<ul id="20e3210f-bf39-8082-aa87-d6812ea48c27" class="bulleted-list"><li style="list-style-type:circle"><strong>Endereço:</strong> Rua das Flores, 123, Centro, Praia Grande/SP</li></ul><ul id="20e3210f-bf39-80d5-b8f2-fea0a9c0feff" class="bulleted-list"><li style="list-style-type:circle"><strong>Porte:</strong> Microempresa</li></ul><ul id="20e3210f-bf39-80aa-8947-eb730d883bda" class="bulleted-list"><li style="list-style-type:circle"><strong>Número de Funcionários:</strong> 5</li></ul><ul id="20e3210f-bf39-8090-9be4-c828bac24b89" class="bulleted-list"><li style="list-style-type:circle"><strong>Nicho de Mercado:</strong> Panificação e Confeitaria</li></ul><ul id="20e3210f-bf39-80d4-954f-e4cf251eb248" class="bulleted-list"><li style="list-style-type:circle"><strong>Principais Produtos/Serviços:</strong> Pães artesanais, bolos caseiros, salgados, cafés.</li></ul></li></ul><ul id="20e3210f-bf39-800c-92f1-c5c26c2b0eaf" class="bulleted-list"><li style="list-style-type:disc"><strong>Empresa:</strong> Loja de Roupas &quot;Estilo Urbano&quot;<ul id="20e3210f-bf39-807e-9d4a-f104b6dfc34b" class="bulleted-list"><li style="list-style-type:circle"><strong>Endereço:</strong> Av. Principal, 456, Boqueirão, Praia Grande/SP</li></ul><ul id="20e3210f-bf39-80b2-9a34-f1f0ee8003a4" class="bulleted-list"><li style="list-style-type:circle"><strong>Porte:</strong> Pequena Empresa</li></ul><ul id="20e3210f-bf39-80bc-a75d-ee1b4b71b1c9" class="bulleted-list"><li style="list-style-type:circle"><strong>Número de Funcionários:</strong> 8</li></ul><ul id="20e3210f-bf39-80b9-ba18-c41f17663ef6" class="bulleted-list"><li style="list-style-type:circle"><strong>Nicho de Mercado:</strong> Moda Jovem e Acessórios</li></ul><ul id="20e3210f-bf39-8054-8d83-e2a556da8591" class="bulleted-list"><li style="list-style-type:circle"><strong>Principais Produtos/Serviços:</strong> Roupas masculinas e femininas, calçados, bolsas, bijuterias.</li></ul></li></ul><ul id="20e3210f-bf39-8088-87e4-cdea6319602c" class="bulleted-list"><li style="list-style-type:disc"><strong>Empreendedor:</strong> &quot;Floricultura Sonho Verde&quot; (MEI)<ul id="20e3210f-bf39-8095-a0eb-de2e14ed97af" class="bulleted-list"><li style="list-style-type:circle"><strong>Endereço:</strong> Feira Livre Municipal (stand fixo), Praia Grande/SP</li></ul><ul id="20e3210f-bf39-80c4-bb3f-c8d2f2bd7e34" class="bulleted-list"><li style="list-style-type:circle"><strong>Porte:</strong> Microempreendedor Individual (MEI)</li></ul><ul id="20e3210f-bf39-800a-a643-e7e66f05e846" class="bulleted-list"><li style="list-style-type:circle"><strong>Número de Funcionários:</strong> 1</li></ul><ul id="20e3210f-bf39-8048-85f2-cbcf76fc2b60" class="bulleted-list"><li style="list-style-type:circle"><strong>Nicho de Mercado:</strong> Floricultura e Paisagismo</li></ul><ul id="20e3210f-bf39-80ec-b261-deebc9e1660a" class="bulleted-list"><li style="list-style-type:circle"><strong>Principais Produtos/Serviços:</strong> Flores ornamentais, arranjos, plantas para jardim, pequenos projetos de paisagismo.</li></ul></li></ul><ul id="20e3210f-bf39-80d3-93a2-d836a6840bcd" class="bulleted-list"><li style="list-style-type:disc"><strong>Empresa:</strong> Restaurante &quot;Sabor do Mar&quot;<ul id="20e3210f-bf39-80df-ae9f-f7914e7411cc" class="bulleted-list"><li style="list-style-type:circle"><strong>Endereço:</strong> Av. da Orla, 789, Canto do Forte, Praia Grande/SP</li></ul><ul id="20e3210f-bf39-809a-996e-d0f239da679f" class="bulleted-list"><li style="list-style-type:circle"><strong>Porte:</strong> Pequena Empresa</li></ul><ul id="20e3210f-bf39-80a4-a1d3-cccf821eaf81" class="bulleted-list"><li style="list-style-type:circle"><strong>Número de Funcionários:</strong> 12</li></ul><ul id="20e3210f-bf39-8043-8a62-d18f0eb54d26" class="bulleted-list"><li style="list-style-type:circle"><strong>Nicho de Mercado:</strong> Gastronomia (frutos do mar)</li></ul><ul id="20e3210f-bf39-80b3-b94b-d7f64fdf07b4" class="bulleted-list"><li style="list-style-type:circle"><strong>Principais Produtos/Serviços:</strong> Pratos com frutos do mar, petiscos, bebidas.</li></ul></li></ul><ul id="20e3210f-bf39-80dd-93c1-d408bd2b1bea" class="bulleted-list"><li style="list-style-type:disc"><strong>Empresa:</strong> Gráfica &quot;Impressão Digital&quot;<ul id="20e3210f-bf39-8074-8b22-d423d12f3b9d" class="bulleted-list"><li style="list-style-type:circle"><strong>Endereço:</strong> Rua do Comércio, 101, Guilhermina, Praia Grande/SP</li></ul><ul id="20e3210f-bf39-80e2-bae7-ff93b4ce9150" class="bulleted-list"><li style="list-style-type:circle"><strong>Porte:</strong> Microempresa</li></ul><ul id="20e3210f-bf39-80f0-8ab9-e1c4ab682418" class="bulleted-list"><li style="list-style-type:circle"><strong>Número de Funcionários:</strong> 4</li></ul><ul id="20e3210f-bf39-803d-9667-d630dff171b1" class="bulleted-list"><li style="list-style-type:circle"><strong>Nicho de Mercado:</strong> Serviços Gráficos</li></ul><ul id="20e3210f-bf39-80b2-af04-df66f92b4553" class="bulleted-list"><li style="list-style-type:circle"><strong>Principais Produtos/Serviços:</strong> Cartões de visita, panfletos, banners, impressões em geral.</li></ul></li></ul><p id="20e3210f-bf39-8001-a08d-e380ff2a76b1" class=""><strong>Parceiros que Contribuirão para o Projeto:</strong></p><ul id="20e3210f-bf39-800e-ac4d-fe936b1ba51c" class="bulleted-list"><li style="list-style-type:disc"><strong>Associação Comercial de Praia Grande (ACPG):</strong> O Presidente da ACPG, <strong>Sr. José Silva</strong>, atuará como líder de associação local, facilitando o contato com os empresários e divulgando o projeto.</li></ul><ul id="20e3210f-bf39-807c-a00f-f46ca665237d" class="bulleted-list"><li style="list-style-type:disc"><strong>Consultor de Tecnologia e Análise de Dados:</strong> <strong>Dr. Ana Costa</strong>, especialista em Business Intelligence e Ciência de Dados, oferecerá suporte técnico e consultoria no desenvolvimento dos materiais e nas sessões de treinamento.</li></ul><p id="20e3210f-bf39-8007-845d-c90354d7eedb" class=""><strong>Coleta de Dados para Identificação e Levantamento:</strong></p><p id="20e3210f-bf39-8072-bab9-c68b7534e1d0" class="">A coleta de dados para identificar e caracterizar os negócios e parceiros foi realizada de forma colaborativa, utilizando diversos canais:</p><ul id="20e3210f-bf39-80d7-be5c-d6d933c0deb8" class="bulleted-list"><li style="list-style-type:disc"><strong>Entrevistas:</strong> Foram realizadas entrevistas individuais (presenciais e por vídeo chamada) com representantes da Associação Comercial de Praia Grande e com alguns empresários pré-selecionados por indicação da própria associação. Nessas entrevistas, foram abordadas as principais dificuldades na gestão de dados e o interesse em capacitação.</li></ul><ul id="20e3210f-bf39-80a6-9ccf-f5d94c0e3515" class="bulleted-list"><li style="list-style-type:disc"><strong>Mensagens:</strong> Trocas de mensagens via WhatsApp e e-mail foram utilizadas para agilizar a comunicação, confirmar agendamentos e coletar informações adicionais sobre os negócios, como produtos/serviços e número de funcionários.</li></ul><ul id="20e3210f-bf39-80b1-abce-cd9cb3aabfa7" class="bulleted-list"><li style="list-style-type:disc"><strong>E-mails:</strong> E-mails formais foram enviados para a Associação Comercial e para os consultores para formalizar o convite para a parceria e para a troca de documentos relevantes.</li></ul><ul id="20e3210f-bf39-80d6-973a-e33f34f10198" class="bulleted-list"><li style="list-style-type:disc"><strong>Vídeo Chamadas:</strong> Reuniões de alinhamento com a equipe do projeto e com a consultora especialista foram realizadas por vídeo chamadas para discutir a metodologia de treinamento e os desafios a serem abordados.</li></ul><p id="20e3210f-bf39-80fe-8887-deb6c7e796fa" class=""><strong>Marcos Temporais e Evidências do Levantamento de Dados:</strong></p><ul id="20e3210f-bf39-80a3-ae71-e742c55f6c81" class="bulleted-list"><li style="list-style-type:disc"><strong>Marcos Temporais:</strong><ul id="20e3210f-bf39-80b1-af9c-c7aa693173a9" class="bulleted-list"><li style="list-style-type:circle"><strong>Semana 1-2 (Maio/2025):</strong> Primeiros contatos e reuniões introdutórias com a Associação Comercial de Praia Grande.</li></ul><ul id="20e3210f-bf39-8031-a470-d10ce0a8acdd" class="bulleted-list"><li style="list-style-type:circle"><strong>Semana 3-4 (Maio/2025):</strong> Entrevistas iniciais com empresários e levantamento de necessidades por meio de vídeo chamadas e mensagens.</li></ul><ul id="20e3210f-bf39-80b1-b5dd-c03cf384d818" class="bulleted-list"><li style="list-style-type:circle"><strong>Semana 1-2 (Junho/2025):</strong> Consolidação dos dados levantados e seleção final dos 5 empresários participantes.</li></ul></li></ul><ul id="20e3210f-bf39-8064-b8e7-c7310c3fbfa8" class="bulleted-list"><li style="list-style-type:disc"><strong>Evidências:</strong><ul id="20e3210f-bf39-80a7-bb26-dd83f63744b2" class="bulleted-list"><li style="list-style-type:circle"><strong>Fotos:</strong> Registros fotográficos das reuniões presenciais com a Associação Comercial (com consentimento prévio).</li></ul><ul id="20e3210f-bf39-8041-9456-c432fed931e1" class="bulleted-list"><li style="list-style-type:circle"><strong>Capturas de Tela:</strong> Screenshots de trechos das vídeo chamadas de levantamento de necessidades com os empresários.</li></ul><ul id="20e3210f-bf39-806f-ac66-e5f0c73ec475" class="bulleted-list"><li style="list-style-type:circle"><strong>Registros:</strong> Planilhas de registro das informações das empresas (nome, endereço, porte, etc.) e resumos das entrevistas realizadas. E-mails de formalização de parcerias.</li></ul></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">1.2 - Situação-Problema Identificada</summary><div class="indented"><p id="20e3210f-bf39-80f0-a6a1-c52629d415db" class="">Agora, vamos mergulhar na <strong>situação-problema</strong> que motiva o projeto. É crucial deixar claro o &quot;porquê&quot; do projeto, o que ele busca resolver.</p><p id="20e3210f-bf39-80d0-96f1-f9762e0a3953" class="">Imagine a seguinte descrição:</p><p id="20e3210f-bf39-808f-b32e-d307b7bebc96" class="">&quot;As empresas locais em <strong>Praia Grande/SP</strong>, especialmente micro e pequenas, enfrentam um desafio significativo: a <strong>dificuldade em compreender e utilizar os dados disponíveis</strong> para impulsionar seus negócios. Em um mercado cada vez mais dinâmico, a falta de competência em <strong>análise de dados</strong> impede que esses empreendimentos identifiquem tendências de mercado, compreendam o comportamento do consumidor e, consequentemente, tomem decisões estratégicas bem-informadas.</p><p id="20e3210f-bf39-80d0-a0eb-e3b893c7e99f" class="">Essa deficiência resulta em <strong>oportunidades de crescimento perdidas</strong>, estoques mal gerenciados e estratégias de vendas ineficazes. O problema foi evidenciado através de <strong>encontros e discussões</strong> com grupos de empresários da comunidade local, onde ficou clara a necessidade de capacitação para transformar dados brutos em <em>insights</em> acionáveis. Muitos expressaram a percepção de que &#x27;têm dados, mas não sabem o que fazer com eles&#x27;, perdendo a chance de otimizar suas operações e alcançar um público maior.&quot;</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">1.3 - Demanda Sociocomunitária e Motivação Acadêmica</summary><div class="indented"><p id="20e3210f-bf39-809a-b516-f21bdae8fc86" class="">Agora, vamos conectar o problema com a <strong>demanda da comunidade</strong> e a <strong>motivação acadêmica</strong> por trás do projeto. Isso mostra a relevância e o impacto tanto para a sociedade quanto para a sua formação.</p><p id="20e3210f-bf39-80cd-bf7a-c7d6e7ebf6f1" class="">Aqui está uma sugestão para esta seção:</p><p id="20e3210f-bf39-8034-8ab4-ec8a953ef2e3" class="">&quot;A dificuldade das micro e pequenas empresas de Praia Grande/SP em interpretar dados de vendas e comportamento do consumidor tem um impacto direto e significativo na <strong>viabilidade e no crescimento econômico</strong> da região. Negócios que não conseguem adaptar-se rapidamente às mudanças do mercado e às preferências dos clientes correm o risco de perder competitividade, resultando em menor faturamento, redução de empregos e, em casos extremos, o fechamento de estabelecimentos. Essa carência em <strong>análise de dados</strong> se traduz em decisões reativas, gestão de estoque ineficiente e estratégias de marketing pouco direcionadas, o que limita o potencial de desenvolvimento local.</p><p id="20e3210f-bf39-80b3-a81d-c62bfc5294e8" class="">Nesse contexto, a <strong>aplicação de técnicas de análise de dados</strong>, aprendidas na nossa disciplina, surge como uma solução prática e vital. Ao capacitar os empresários, podemos não só <strong>melhorar a capacidade decisória</strong>, permitindo que identifiquem os produtos mais rentáveis ou os períodos de maior demanda, mas também <strong>otimizar a gestão de estoques</strong>, evitando perdas e desperdícios. Além disso, a análise de dados possibilita a <strong>identificação de padrões de consumo</strong>, o que é crucial para o desenvolvimento de novos produtos ou serviços e para a personalização das ofertas.</p><p id="20e3210f-bf39-80be-888b-fe2f997d0fcd" class="">Do ponto de vista acadêmico, este projeto reforça a <strong>relevância do conhecimento teórico aplicado a problemas reais</strong>. É a oportunidade perfeita para colocar a &#x27;mão na massa&#x27; e ver como a <strong>análise de dados</strong> pode transformar a realidade de pequenos negócios. Isso não só potencializa a economia local, mas também nos permite, como estudantes, consolidar o aprendizado, desenvolver habilidades práticas e contribuir ativamente com a comunidade.&quot;</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">1.4 - Objetivos a Serem Alcançados em Relação à Situação-Problema Identificada</summary><div class="indented"><p id="20e3210f-bf39-8072-abbd-feabb91851be" class="">Agora chegamos aos <strong>objetivos</strong>. Eles são o coração do seu projeto, pois definem o que vocês esperam alcançar. Precisam ser <strong>claros, mensuráveis e realistas</strong>.</p><p id="20e3210f-bf39-8040-8850-f0d953e0ad23" class="">Vamos definir os objetivos com base no que você já me passou:</p><p id="20e3210f-bf39-809f-8169-c0c3c7b814e6" class="">&quot;Com o intuito de abordar a situação-problema identificada, o projeto de extensão &#x27;Dados para Decidir&#x27; estabelece os seguintes objetivos claros e mensuráveis:</p><ul id="20e3210f-bf39-8080-a5ba-d9e1a538c176" class="bulleted-list"><li style="list-style-type:disc"><strong>Capacitar 5 empresários locais</strong> (micro e pequeno porte) em técnicas básicas de análise de dados <strong>até o final do semestre</strong> vigente (Julho/2025), para que possam interpretar dados de vendas e comportamento do consumidor de suas próprias empresas. Isso inclui a habilidade de identificar tendências e <em>insights</em> a partir de planilhas e relatórios simples.</li></ul><ul id="20e3210f-bf39-80a3-b552-f5667041b335" class="bulleted-list"><li style="list-style-type:disc"><strong>Melhorar a tomada de decisão em pelo menos 75% das empresas participantes</strong>, mensurado por meio de feedback qualitativo e análise de desempenho preliminar (como otimização de estoque ou campanhas de marketing mais eficazes) <strong>três meses após a conclusão do projeto</strong> (Outubro/2025). A avaliação será feita por questionários e entrevistas de acompanhamento.</li></ul><ul id="20e3210f-bf39-8086-bec3-daf9c3d6bbf2" class="bulleted-list"><li style="list-style-type:disc"><strong>Fomentar a criação de uma rede de suporte contínuo</strong> entre os empresários participantes, estabelecendo um grupo de trabalho (online ou presencial) para compartilhar conhecimentos, experiências e desafios em análise de dados, com a <strong>primeira reunião agendada para até um mês após o término da capacitação</strong> (Agosto/2025).&quot;</li></ul></div></details><h2 id="20e3210f-bf39-80f4-9e41-ee0d2629edb6" class="">2 - Planejamento para Desenvolver o Projeto</h2><p id="20e3210f-bf39-8036-a3a1-ebfe24c1f3bc" class="">Agora que temos o diagnóstico e os objetivos, vamos planejar como tudo isso será executado! Esta seção é o &quot;como&quot; do seu projeto, detalhando as etapas e a metodologia.</p><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">2.1 - Plano de Trabalho com Cronograma das Atividades</summary><div class="indented"><p id="20e3210f-bf39-803f-8a8a-e5ca82069579" class="">Vamos detalhar as ações, prazos, recursos, público-alvo e o local. Usaremos os meses de <strong>junho e julho de 2025</strong> como referência, dado que estamos em junho.</p><p id="20e3210f-bf39-80e5-8e6f-d5a317b27257" class=""><mark class="highlight-purple"><mark class="highlight-default_background"><strong>Plano de Trabalho do Projeto &quot;Dados para Decidir&quot;</strong></mark></mark></p><ul id="20e3210f-bf39-80b0-99b0-f38cef3982eb" class="toggle"><li><details open=""><summary>Ação 1: Preparação do Material de Treinamento</summary><ul id="20e3210f-bf39-80bb-9671-c6b5fb8447c4" class="toggle"><li><details open=""><summary>Detalhamento</summary><p id="20e3210f-bf39-80b7-9dd6-f0531b22dcae" class="">Desenvolver slides, tutoriais em vídeo curtos e exercícios práticos focados nas necessidades identificadas dos empresários. Incluir casos de uso reais.</p></details></li></ul><ul id="20e3210f-bf39-8034-bcd9-d1e793d8cbae" class="toggle"><li><details open=""><summary>Prazo</summary><p id="20e3210f-bf39-80cf-98bc-d60fecdfcda3" class="">Até 21 de junho de 2025 (7 dias antes do início da oficina)</p></details></li></ul><ul id="20e3210f-bf39-8030-ade6-caeb22aaa532" class="toggle"><li><details open=""><summary>Recursos Mínimos Necessários</summary><p id="20e3210f-bf39-80e2-b31f-edde16977900" class="">Computadores, acesso à internet, softwares de apresentação (ex: Google Slides, PowerPoint), ferramentas de gravação de tela, dados fictícios ou anonimizados para exercícios.</p></details></li></ul><ul id="20e3210f-bf39-80fe-a975-e0b97045c635" class="toggle"><li><details open=""><summary>Público-Alvo</summary><p id="20e3210f-bf39-80c6-85cf-dcc98b3fa1c3" class="">Equipe do Projeto</p></details></li></ul><ul id="20e3210f-bf39-80ae-b841-dad5cce5b31b" class="toggle"><li><details open=""><summary>Local de Realização</summary><p id="20e3210f-bf39-80a4-a26a-f8d401596ba4" class="">Online (plataformas colaborativas)</p></details></li></ul></details></li></ul><ul id="20e3210f-bf39-8055-884a-e66e02b4dd5f" class="toggle"><li><details open=""><summary>Ação 2: Realização das Sessões de Treinamento Prático</summary><ul id="20e3210f-bf39-8048-9200-c4f7514fc0db" class="toggle"><li><details open=""><summary>Detalhamento</summary><p id="20e3210f-bf39-80e6-922a-ee178fd0ee11" class="">Conduzir 3 workshops presenciais (ou online, se necessário) para os 5 empresários selecionados. Cada workshop terá duração de 3 horas, focando em: &lt;br&gt; - Sessão 1 (28/06): Introdução à Análise de Dados e Limpeza de Dados. &lt;br&gt; - Sessão 2 (05/07): Análise Descritiva e Visualização de Dados (Gráficos Simples). &lt;br&gt; - Sessão 3 (12/07): Tomada de Decisão Baseada em Dados e Ferramentas Básicas (ex: Google Sheets/Excel).</p></details></li></ul><ul id="20e3210f-bf39-8082-b275-c9be23675707" class="toggle"><li><details open=""><summary>Prazo</summary><p id="20e3210f-bf39-8009-9187-ee98b389e0f8" class="">De 28 de junho a 12 de julho de 2025 (Meio do semestre)</p></details></li></ul><ul id="20e3210f-bf39-80e1-8596-d72a60bbff80" class="toggle"><li><details open=""><summary>Recursos Mínimos Necessários</summary><p id="20e3210f-bf39-8001-9c20-d033a21235af" class="">Sala com projetor e computadores (ou links para plataformas de vídeo conferência), material didático impresso (opcional), internet de alta velocidade.</p></details></li></ul><ul id="20e3210f-bf39-8033-a5d0-e5354398daad" class="toggle"><li><details open=""><summary>Público-Alvo</summary><p id="20e3210f-bf39-80e1-a319-efcaef90db5c" class="">5 empresários locais selecionados</p></details></li></ul><ul id="20e3210f-bf39-8016-8967-cf6e658f34f5" class="toggle"><li><details open=""><summary>Local de Realização</summary><p id="20e3210f-bf39-8029-ae67-e10da9b54140" class="">Sala cedida pela Associação Comercial de Praia Grande (ou Google Meet/Zoom)</p></details></li></ul></details></li></ul><ul id="20e3210f-bf39-80b0-8816-ccddb4b0daee" class="toggle"><li><details open=""><summary>Ação 3: Avaliação do Progresso e Coleta de Feedback</summary><ul id="20e3210f-bf39-8082-9edc-dd8533a56d39" class="toggle"><li><details open=""><summary>Detalhamento</summary><p id="20e3210f-bf39-804e-a38d-c0cc90488615" class="">Aplicar questionários de feedback ao final de cada sessão e entrevistas individuais pós-projeto para avaliar a compreensão e aplicação dos conceitos. Analisar a percepção dos participantes sobre a melhora na tomada de decisão.</p></details></li></ul><ul id="20e3210f-bf39-80ab-a6a6-cb7b6a41cf8a" class="toggle"><li><details open=""><summary>Prazo</summary><p id="20e3210f-bf39-8037-95a9-d2107ac00cc5" class="">De 12 de julho a 26 de julho de 2025 (Ao final de cada sessão e término do projeto)</p></details></li></ul><ul id="20e3210f-bf39-8006-ace2-d970baad4f41" class="toggle"><li><details open=""><summary>Recursos Mínimos Necessários</summary><p id="20e3210f-bf39-806b-99d6-c816858e3bda" class="">Formulários online (Google Forms), roteiros de entrevista, computadores para tabulação de dados.</p></details></li></ul><ul id="20e3210f-bf39-805e-a135-c272191ec8d0" class="toggle"><li><details open=""><summary>Público-Alvo</summary><p id="20e3210f-bf39-80cc-8554-dbde05fd1c75" class="">5 empresários locais participantes</p></details></li></ul><ul id="20e3210f-bf39-8008-b3b0-d3e7863859ce" class="toggle"><li><details open=""><summary>Local de Realização</summary><p id="20e3210f-bf39-8000-98f3-d4c01357b2c1" class="">Online (formulários) e/ou Presencial (entrevistas)</p></details></li></ul></details></li></ul><ul id="20e3210f-bf39-8004-b513-c17d11b0a924" class="toggle"><li><details open=""><summary>Ação 4: Fomento da Rede de Suporte</summary><ul id="20e3210f-bf39-80fc-badd-e49c76666669" class="toggle"><li><details open=""><summary>Detalhamento</summary><p id="20e3210f-bf39-806d-b26c-cb7274637a18" class="">Criar um grupo de mensagens online (ex: WhatsApp) e agendar a primeira reunião para compartilhamento de experiências e dúvidas entre os empresários.</p></details></li></ul><ul id="20e3210f-bf39-806e-bb58-f8dcca7568c0" class="toggle"><li><details open=""><summary>Prazo</summary><p id="20e3210f-bf39-8041-a3f1-e7a0bb53ba4c" class="">Até 26 de julho de 2025 (1 mês após o término da capacitação)</p></details></li></ul><ul id="20e3210f-bf39-80a2-b760-ed63cf0c85af" class="toggle"><li><details open=""><summary>Recursos Mínimos Necessários</summary><p id="20e3210f-bf39-8063-9c90-dec4edbbe055" class="">Aplicativo de mensagens, plataforma para vídeo conferência (se a reunião for online).</p></details></li></ul><ul id="20e3210f-bf39-8000-b4de-dfe008c1c098" class="toggle"><li><details open=""><summary>Público-Alvo</summary><p id="20f3210f-bf39-80bb-8539-f1b32d77c9c5" class="">5 empresários participantes</p></details></li></ul><ul id="20e3210f-bf39-80f4-868e-ed2c65f0308d" class="toggle"><li><details open=""><summary>Local de Realização</summary><p id="20f3210f-bf39-8050-a270-c7127a6ef6fa" class="">Online (grupo de mensagens/vídeo conferência)</p></details></li></ul></details></li></ul>
+
+
+     </div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">2.2 - Metodologia</summary><div class="indented"><p id="20f3210f-bf39-80a4-88da-e577184e13da" class="">Agora vamos descrever como vocês vão executar o projeto, ou seja, os <strong>métodos</strong> que serão utilizados. Pense no &quot;como&quot; vocês vão interagir com os empresários e coletar as informações.</p><p id="20f3210f-bf39-80ce-b4d7-d989fce1e491" class="">Aqui está uma sugestão para a seção de Metodologia:</p><p id="20f3210f-bf39-80ad-914e-c8b1294afe8e" class="">&quot;A metodologia do projeto &#x27;Dados para Decidir&#x27; será pautada na <strong>abordagem participativa e prática</strong>, buscando engajar ativamente os empresários e adaptar o conteúdo às suas realidades.</p><p id="20f3210f-bf39-80c6-a890-ce8b736414d2" class="">Inicialmente, para o <strong>diagnóstico das necessidades</strong> dos empresários locais, foram utilizadas:</p><ul id="20f3210f-bf39-80a6-9614-d60c8c127881" class="bulleted-list"><li style="list-style-type:disc"><strong>Entrevistas semi-estruturadas:</strong> Realizadas individualmente com os empresários selecionados, tanto presenciais quanto por vídeo chamadas, para compreender suas principais dificuldades na gestão de dados, seus objetivos de negócio e as ferramentas que já utilizam (ou não).</li></ul><ul id="20f3210f-bf39-80b2-ba0d-d74d9c3e94ce" class="bulleted-list"><li style="list-style-type:disc"><strong>Rodas de conversa:</strong> Promovidas com grupos menores de empresários indicados pela Associação Comercial, permitindo um levantamento mais amplo de problemas comuns e o compartilhamento de expectativas em relação ao projeto. Essas conversas informais ajudaram a identificar a &#x27;situação-problema&#x27;.</li></ul><ul id="20f3210f-bf39-809b-9f84-e18826030014" class="bulleted-list"><li style="list-style-type:disc"><strong>Aplicação de questionários:</strong> Utilizados para complementar as entrevistas e rodas de conversa, com perguntas objetivas sobre o nível de familiaridade com planilhas, ferramentas de análise e os tipos de dados que geram em seus negócios.</li></ul><p id="20f3210f-bf39-802e-8f45-e3cf0b02e684" class="">Com base nos dados coletados nessas etapas, a equipe do projeto fará a <strong>análise qualitativa e quantitativa</strong> das informações. Isso significa que as respostas das entrevistas e questionários serão interpretadas para identificar padrões, lacunas de conhecimento e as demandas mais urgentes dos empresários. Essa análise será fundamental para <strong>elaborar um plano de treinamento em análise de dados</strong> que seja customizado e realmente útil para o público-alvo, focando nas ferramentas e técnicas mais relevantes para o dia a dia desses negócios.</p><p id="20f3210f-bf39-8003-a643-ff02a11045c3" class="">Para a realização das <strong>sessões de treinamento</strong>, a metodologia será bastante prática:</p><ul id="20f3210f-bf39-80cf-9b69-f32cf267d7ca" class="bulleted-list"><li style="list-style-type:disc"><strong>Workshops presenciais (ou online):</strong> Com foco em &#x27;aprender fazendo&#x27;. Serão apresentados conceitos básicos de análise de dados de forma simplificada, seguidos de exercícios práticos com dados fictícios ou anonimizados (ex: dados de vendas, estoque, clientes).</li></ul><ul id="20f3210f-bf39-803a-a743-d2b6baef5d9e" class="bulleted-list"><li style="list-style-type:disc"><strong>Dinâmicas de grupo:</strong> Incentivando a troca de experiências entre os empresários e a resolução colaborativa de pequenos desafios relacionados à interpretação de dados.</li></ul><p id="20f3210f-bf39-801c-9157-d14ea3f4fb19" class="">Durante todo o processo, a <strong>documentação</strong> será rigorosa para comprovar a execução e o impacto do projeto:</p><ul id="20f3210f-bf39-80f5-bac3-d35efbde3431" class="bulleted-list"><li style="list-style-type:disc"><strong>Registros visuais:</strong> Fotografias e capturas de tela das sessões de treinamento, dinâmicas e utilização de softwares serão coletadas (com o consentimento dos participantes).</li></ul><ul id="20f3210f-bf39-8012-833e-e4d410c18d62" class="bulleted-list"><li style="list-style-type:disc"><strong>Listas de presença:</strong> Para comprovar a participação e frequência dos empresários.</li></ul><ul id="20f3210f-bf39-8046-bfce-d82ec199eb13" class="bulleted-list"><li style="list-style-type:disc"><strong>Registros de comunicação:</strong> Mensagens e e-mails trocados com os participantes e parceiros serão arquivados como evidência das interações.</li></ul><p id="20f3210f-bf39-80ff-96ee-d68c83ed725c" class="">Essa abordagem garante que o projeto não apenas transmita conhecimento, mas também crie um ambiente de aprendizado dinâmico e relevante para as necessidades da comunidade empresarial local.&quot;</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">2.3 - Avaliação dos Resultados Alcançados</summary><div class="indented"><p id="20f3210f-bf39-808b-9eb9-c1819a717358" class="">A avaliação do projeto &quot;Dados para Decidir&quot; será um processo contínuo e multifacetado, desenhado para verificar o alcance dos objetivos e mensurar o impacto real na capacidade de tomada de decisão dos empresários. Serão utilizados os seguintes instrumentos e indicadores:</p><ul id="20f3210f-bf39-809c-ad56-fadf678b1abd" class="bulleted-list"><li style="list-style-type:disc"><strong>Número de empresários participantes:</strong> Este será um indicador quantitativo direto. A participação nos workshops e sessões de treinamento será controlada por meio de <strong>listas de presença digitalizadas</strong> e registros de acesso a plataformas online, assegurando a comprovação do número de 5 empresários capacitados, conforme o objetivo inicial.</li></ul><ul id="20f3210f-bf39-8005-992c-d4914f244a3b" class="bulleted-list"><li style="list-style-type:disc"><strong>Satisfação dos participantes:</strong> A percepção e o nível de satisfação dos empresários em relação ao treinamento serão avaliados por meio de <strong>questionários de feedback</strong>. Estes serão aplicados ao final de cada sessão e também no encerramento do projeto, utilizando ferramentas como o Google Forms. As perguntas abordarão a clareza do conteúdo, a relevância prática para o dia a dia do negócio, a qualidade dos materiais didáticos e a adequação da metodologia. A análise das respostas (que poderão utilizar escalas de satisfação, por exemplo, de 1 a 5) fornecerá <em>insights</em> valiosos sobre a qualidade do treinamento e a percepção dos participantes.</li></ul><ul id="20f3210f-bf39-800d-9627-cf3b3fd1e050" class="bulleted-list"><li style="list-style-type:disc"><strong>Melhora na tomada de decisão e desempenho empresarial:</strong> Para avaliar o impacto direto no negócio, será realizada uma <strong>análise comparativa qualitativa e, quando possível, quantitativa</strong> dos dados de desempenho das empresas <strong>três meses após a conclusão do treinamento</strong> (outubro de 2025). Isso será feito principalmente através de:<ul id="20f3210f-bf39-808d-b2c2-cc92eea893f8" class="bulleted-list"><li style="list-style-type:circle"><strong>Entrevistas de acompanhamento:</strong> Conversas estruturadas com os empresários para identificar exemplos práticos de como a análise de dados foi aplicada e as mudanças percebidas em suas decisões (ex: otimização de campanhas de marketing, melhor gestão de estoque, identificação de novos produtos/serviços, compreensão de tendências de vendas).</li></ul><ul id="20f3210f-bf39-8032-957c-f58bd1b94628" class="bulleted-list"><li style="list-style-type:circle"><strong>Análise de evidências de aplicação:</strong> Se os empresários desenvolverem relatórios ou dashboards simples, ou demonstrarem a aplicação de <em>insights</em> da análise de dados em suas operações, esses elementos serão considerados como evidência da melhoria na tomada de decisão.</li></ul><ul id="20f3210f-bf39-80f0-b3e4-f1b592877ebd" class="bulleted-list"><li style="list-style-type:circle">O objetivo é verificar se <strong>pelo menos 75% das empresas participantes</strong> demonstraram uma melhoria perceptível em suas decisões de negócio e/ou em seus processos operacionais graças à aplicação dos conceitos aprendidos.</li></ul></li></ul><p id="20f3210f-bf39-80c6-9853-ca0d210ddf97" class="">Esses indicadores, combinados com as evidências documentais (fotos, capturas de tela, registros), permitirão uma avaliação robusta do projeto, comprovando seu impacto e fornecendo dados para futuras iniciativas.</p></div></details><h2 id="20f3210f-bf39-8072-9660-ec93460223b8" class="">3 - Encerramento do Projeto</h2><p id="20f3210f-bf39-8061-ae37-f7d5e6519e80" class="">Chegamos à etapa final do seu trabalho: o <strong>encerramento do projeto</strong>. Aqui, você vai compilar e apresentar todas as evidências que comprovam a realização e o sucesso das atividades.</p><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">3.1 - Evidências das Atividades Realizadas</summary><div class="indented"><p id="20f3210f-bf39-80c8-b3c5-c415da81e2ae" class="">Esta seção é o &quot;mostruário&quot; do seu projeto, onde você vai apresentar as provas de que tudo aconteceu.</p><p id="20f3210f-bf39-80fe-a7cc-cf6ba31022e2" class="">Veja uma sugestão de como estruturar essa parte:</p><p id="20f3210f-bf39-803a-958b-cc7e0ec15b75" class="">&quot;O encerramento do projeto &#x27;Dados para Decidir&#x27; será marcado pela compilação e apresentação de diversas <strong>evidências documentais</strong> que comprovam o desenvolvimento das atividades e os resultados alcançados. Essas evidências não só validam a execução do plano de trabalho, mas também servem como um registro do impacto gerado na comunidade empresarial local.</p><p id="20f3210f-bf39-80ef-8db8-e2b0251fe98b" class="">As principais evidências a serem incluídas são:</p><ul id="20f3210f-bf39-80f6-9815-c8eddfdf7b23" class="bulleted-list"><li style="list-style-type:disc"><strong>Fotografias e Vídeos das Sessões de Treinamento e Workshops:</strong> Serão anexados registros visuais dos momentos-chave das sessões presenciais ou online. As fotos e vídeos capturarão a interação dos participantes, o ambiente de aprendizado e a equipe do projeto em ação.<ul id="20f3210f-bf39-8060-aaa9-ff4604bebc3d" class="bulleted-list"><li style="list-style-type:circle"><strong>Contexto Exemplo:</strong> <em>&#x27;Foto/Vídeo da Sessão 1 – Introdução à Análise de Dados&#x27;, realizada em </em><em><strong>28 de junho de 2025</strong></em><em>, na sala de treinamento da Associação Comercial de Praia Grande, mostrando os empresários engajados na discussão sobre coleta e limpeza de dados.</em></li></ul></li></ul><ul id="20f3210f-bf39-80a8-81ec-fd635e77a8d1" class="bulleted-list"><li style="list-style-type:disc"><strong>Capturas de Tela dos Dashboards e Softwares Utilizados:</strong> Screenshots de exemplos práticos desenvolvidos durante as sessões, como planilhas do Google Sheets ou Excel com dados analisados, gráficos gerados ou interfaces de ferramentas online simples de análise de dados.<ul id="20f3210f-bf39-80fe-ae2c-e3f91a691260" class="bulleted-list"><li style="list-style-type:circle"><strong>Contexto Exemplo:</strong> <em>&#x27;Captura de Tela – Gráfico de Vendas Mensais&#x27;, demonstrando a aplicação do aprendizado da Sessão 2 (Visualização de Dados) por um dos empresários em </em><em><strong>05 de julho de 2025</strong></em><em>, utilizando dados simulados para identificar picos de vendas.</em></li></ul></li></ul><ul id="20f3210f-bf39-8031-8911-fc0c6ec14b62" class="bulleted-list"><li style="list-style-type:disc"><strong>Cartas de Autorização dos Participantes:</strong> Documentos assinados pelos empresários autorizando o uso de suas imagens e dados (anonimizados, quando necessário) para fins de documentação e divulgação do projeto.<ul id="20f3210f-bf39-80e6-a3f4-d5d9c77903d5" class="bulleted-list"><li style="list-style-type:circle"><strong>Contexto Exemplo:</strong> <em>&#x27;Termo de Consentimento de Uso de Imagem e Dados&#x27;, assinado por [Nome do Empresário], em </em><em><strong>21 de junho de 2025</strong></em><em>, validando a participação e uso dos registros para o relatório final do projeto.</em></li></ul></li></ul><ul id="20f3210f-bf39-80d9-b834-f5a2ccd104b6" class="bulleted-list"><li style="list-style-type:disc"><strong>Material Didático Digital:</strong> A compilação de todo o material desenvolvido para a capacitação, como apresentações em slides, tutoriais em vídeo curtos, manuais simplificados e exercícios práticos em formato digital.<ul id="20f3210f-bf39-8092-84a4-e97f77df97c4" class="bulleted-list"><li style="list-style-type:circle"><strong>Contexto Exemplo:</strong> <em>&#x27;Apresentação PowerPoint – Tomada de Decisão Baseada em Dados (Sessão 3)&#x27;, versão final utilizada no workshop de </em><em><strong>12 de julho de 2025</strong></em><em>, contendo os principais conceitos e exemplos práticos para os empresários.</em></li></ul></li></ul><ul id="20f3210f-bf39-804f-9728-d03c655af0f3" class="bulleted-list"><li style="list-style-type:disc"><strong>Lista de Presença Digitalizada:</strong> Cópias digitalizadas das listas de presença preenchidas pelos participantes em cada sessão presencial, ou registros de participação das plataformas de vídeo conferência em caso de sessões online.<ul id="20f3210f-bf39-80c0-9cef-db841a7cb057" class="bulleted-list"><li style="list-style-type:circle"><strong>Contexto Exemplo:</strong> <em>&#x27;Lista de Presença – Workshop de Análise de Dados – Sessão 1&#x27;, datada de </em><em><strong>28 de junho de 2025</strong></em><em>, com as assinaturas/registros dos 5 empresários participantes.</em></li></ul></li></ul><ul id="20f3210f-bf39-8075-8bc1-c010f4951e97" class="bulleted-list"><li style="list-style-type:disc"><strong>Questionários de Feedback Preenchidos pelos Participantes:</strong> Os formulários (digitais ou digitalizados) com as respostas dos empresários sobre sua satisfação com o treinamento e a percepção de melhoria.<ul id="20f3210f-bf39-80b1-9fec-f5c2ed945bc1" class="bulleted-list"><li style="list-style-type:circle"><strong>Contexto Exemplo:</strong> <em>&#x27;Questionário de Feedback Final – Projeto Dados para Decidir&#x27;, coletado em </em><em><strong>26 de julho de 2025</strong></em><em>, com as avaliações dos participantes sobre o impacto geral do projeto em seus negócios.</em></li></ul></li></ul><p id="20f3210f-bf39-80ac-ba0c-c228a8654917" class="">Cada uma dessas evidências será acompanhada de uma <strong>descrição contextualizada</strong>, informando a <strong>data, local e a atividade específica</strong> a que se refere, garantindo a clareza e a rastreabilidade da execução e dos resultados do projeto de extensão.&quot;</p></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
