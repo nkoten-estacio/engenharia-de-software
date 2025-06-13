@@ -19,7 +19,7 @@ function BasicAnimations() {
     <div className="flex flex-col items-center space-y-8 p-8">
       {/* Animação de Spin */}
       <div className="flex items-center space-x-2">
-        <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-blue-500"></div>
+        <div className="w-16 h-16 aspect-square border-4 border-dashed rounded-full animate-spin border-blue-500"></div>
         <p>animate-spin</p>
       </div>
 
@@ -62,6 +62,12 @@ function BasicAnimations() {
 
 function App() {
    return( <>
+      <section>
+         <article>here</article>
+      </section>
+      <section>
+         <section>here</section>
+      </section>
       <main className="flex items-center justify-center h-full bg-blue-200 text-4xl">
          <spin className="bg-purple-300 w-8 h-8 animate-spin rounded-md"></spin>
          <section className="flex w-full bg-orange-100">
