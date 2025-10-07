@@ -1,0 +1,286 @@
+
+
+body {
+   margin: 0;
+   padding: 0;
+   background-color: #f5f5f5;
+   font-family: Inter;
+   color: #585858;
+}
+
+.app {
+   width: clamp(100px, 100%, 1250px);
+}
+
+.appbar {
+   box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 8px;
+   padding-left: 5em !important;
+   padding-right: 5em !important;
+}
+
+.appbar-right {
+   display: flex;
+   align-items: center;
+   gap: 2em;
+}
+
+.divv {
+   /* divisão do AppBar */
+   /*
+      display: grid;
+      place-items: center;
+      padding-left: 1em;
+      padding-right: 1em;
+      transform: scale(2.5);
+      color: #7773;
+      color: #ff7815; */
+}
+
+.quest {
+   box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 8px 0px;
+}
+
+.qbtn {
+   display: flex;
+   align-items: center;
+   width: 100%;
+   height: 100%;
+   border-radius: 12px;
+   margin-bottom: 1rem;
+   border: 1px solid rgb(224, 224, 224);
+   cursor: pointer;
+   background-color: rgb(255, 255, 255);
+   padding: 0.75rem;
+   gap: 0.75rem;
+}
+
+.title {
+   font-family: Montserrat;
+   /*font-size: 3.8rem;*/
+}
+
+.subt {
+   font-family: Inter;
+   color: #555 !important;
+}
+
+.hora,
+.minuto,
+.segundo {
+   font-size: 1.2rem;
+   font-weight: 700;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.horas,
+.minutos,
+.segundos {
+   font-size: .9rem;
+   font-weight: 400;
+}
+
+.clock-div {
+   font-size: 1.1rem;
+   font-weight: 600;
+}
+
+.qbtnns {
+   display: grid;
+   place-items: center;
+   border-radius: 50em;
+   height: 2em;
+   aspect-ratio: 1;
+   color: #ffffff;
+   border: 1px solid #144bc8;
+}
+
+.qstcard {
+   box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 8px 0px;
+}
+
+.btnc {
+   /*background-color: #7772;*/
+   /*border: #7775 1px solid;*/
+   /*aspect-ratio: 1;*/
+}
+
+.submit {
+   background-color: #144bc8;
+}
+
+.libras-btn {
+   position: fixed;
+   left: initial;
+   right: 0px;
+   top: 50%;
+   bottom: initial;
+   transform: translateY(calc(-35% - 10px));
+   padding: 10px;
+   z-index: 333;
+}
+.libras-btn > img {
+   width: 40px;
+   height: 40px;
+}
+
+.feedback-btn {
+   position: absolute;
+   top: -38px;
+   margin-left: 16px;
+   display: flex;
+    width: fit-content;
+    height: 38px;
+    padding: 0px 20px;
+    white-space: nowrap;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    border-radius: 6px 6px 0px 0px;
+    border: 0px;
+    cursor: pointer;
+    font-size: 1em;
+    gap: 10px;
+    transform-origin: center bottom;
+    pointer-events: all;
+    position: fixed;
+    inset: auto auto 0px 24px;
+    background: rgb(50, 79, 190) !important;
+    color: rgb(253, 253, 254) !important;
+    fill: rgb(253, 253, 254) !important;
+}
+.feedback-btn-icon {
+   display: block;
+   margin: 0;
+   padding: 0;
+   width: 16px;
+   height: 16px;
+}
+.feedback-btn-icon > svg {
+   width: 16px;
+   height: 16px;
+}
+.feedback-text {
+   color: rgb(253, 253, 254);
+    font-size: 1em;
+    font-family: Ambit, Arial, sans-serif !important;
+}
+
+cardn-9-275-983 {
+
+}
+
+
+.code {
+   border-radius: 8px;
+   padding: 8px;
+   overflow: auto;
+   color: #f5f5f5;
+   background-color: #545454;
+   overflow-x: hide;
+}
+
+code-print {
+   display: block;
+   border-radius: 8px;
+   background: #1b1d22;
+   overflow: hidden;
+}
+code-print > header {
+   display: flex;
+   align-items: center;
+   background: #212329;
+   height: 2rem;
+   gap: .5rem;
+   padding: 0 1rem;
+}
+code-print > header > left { border-radius: 5rem; width: 1rem; height: 1rem; background: #934; }
+code-print > header > middle { border-radius: 5rem; width: 1rem; height: 1rem; background: #FF7815; }
+code-print > header > right { border-radius: 5rem; width: 1rem; height: 1rem; background: #594; }
+code-print > main {
+   padding: 1rem;
+   color: #eeeeee;
+}
+
+ol {
+   list-style: decimal !important;
+   padding-left: 2.5rem;
+}
+
+.table {
+   width: 100%;
+   border-radius: 8px;
+   overflow: hidden;
+   border-collapse: collapse;
+   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+   margin: 1rem 0;
+}
+.table thead {
+   background: #2c2c2c;
+   color: #ffffff;
+}
+
+.table th {
+    padding: 12px 15px; /* Espaçamento interno */
+    text-align: left; /* Alinhamento do texto à esquerda */
+    font-weight: bold; /* Texto em negrito */
+    font-size: 1.1em;
+    /* Borda sutil à direita, exceto na última coluna */
+    border-right: 1px solid rgba(255, 255, 255, 0.1); /* Borda clara entre as colunas do cabeçalho */
+}
+
+.table th:last-child {
+    border-right: none; /* Remove a borda direita da última célula do cabeçalho */
+}
+
+.table tbody {
+    background-color: #ffffff; /* Fundo branco para o corpo da tabela */
+    color: #333333; /* Texto escuro para o corpo da tabela */
+}
+.table td {
+    padding: 12px 15px; /* Espaçamento interno */
+    text-align: left; /* Alinhamento do texto à esquerda */
+    /* Borda sutil entre as colunas do corpo */
+    border-right: 1px solid #e0e0e0; /* Borda clara entre as colunas do corpo */
+    /* Borda inferior para cada linha, exceto a última */
+    border-bottom: 1px solid #e0e0e0;
+}
+.table td:last-child {
+    border-right: none; /* Remove a borda direita da última célula de cada linha do corpo */
+}
+.table tbody tr:nth-child( even ) {
+   background: #f5f5f5;
+}
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+[m="c"] {
+   margin: 0 auto;
+}
+/*
+* red: #e06c75;
+* yellow: #e5c07b;
+* orange: #d19A66;
+* purple: #C678DD;
+* blue: #56b6c2;
+* */
+
+/*
+<table class="table">
+   <thead>
+      <tr>
+         <td></td>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td></td>
+      </tr>
+   </tbody>
+</table>
+<br/>
+<image src="./assets/disciplinas/ad/ad01.jpg"/>
+*/

@@ -1,68 +1,37 @@
-
-
 <!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title></title>
-      <link href="css/style.css" rel="stylesheet">
-      <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-   </head>
-   <body>
-      <app></app>
-   
-      <script type="importmap">
-         {
-           "imports": {
-             "react": "https://esm.sh/react@19.0.0-rc-58af67a8f8-20240628",
-             "react-dom/client": "https://esm.sh/react-dom@19.0.0-rc-58af67a8f8-20240628/client"
-           }
-         }
-      </script>
-      <script type="text/babel" data-type="module">
-         import React, { useState } from "react";
-         import { createRoot } from "react-dom/client";
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gemini React App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Reenie+Beanie&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./assets/styles/globals.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="./assets/styles/plotly.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+    <style></style>
+  </head>
+  <body content>
+    <app></app>
 
-         const 
-            COLORS = ["green", "gray"],
-            LINKS = [
-               { id: "Sia", link: "https://sia.estacio.br/sianet/" },
-               { id: "Sava", link: "https://estudante.estacio.br/disciplinas" },
-               { link: "https://simulado.estacio.br/alunos/" },
-            ]
-         ;
-            
-         function Cell() {
-         }
-         function _Cells() {
-         }
-         const Cells = React.memo(_Cells);
-         
-         function GetColors( ...{ props } ) {
-            return( <>
-               { 
-                  COLORS && COLORS.map( color => ( <>
-                     <p id="p{color}">{ color }</p>
-                  </> ) ) 
-               }
-            </> );
-         }
-         
-         function App() {
-            return( 
-               <>
-                  <p>{ "oi" }</p>
-                  <GetColors />
-               </> 
-            );
-         }
-         
-         // ReactDOMClient.createRoot(
-         createRoot(
-            document.querySelector( "app" )
-         ).render( <App /> );
-      </script>
-   </body>
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@19.2.0",
+          "react-dom/client": "https://esm.sh/react-dom@19.2.0/client",
+          "react-router-dom": "https://esm.sh/react-router-dom@6",
+          "@google/generative-ai": "https://esm.sh/@google/generative-ai@0.24.1",
+          "@react-icons/all-files": "https://esm.sh/@react-icons/all-files@4.1.0",
+          "data": "./assets/data/data.js",
+          "questions": "./assets/disciplinas/sistemas-operacionais.js"
+        }
+      }
+    </script>
+    <script type="text/babel" data-type="module" src="./main.jsx"></script>
+  </body>
 </html>
-
