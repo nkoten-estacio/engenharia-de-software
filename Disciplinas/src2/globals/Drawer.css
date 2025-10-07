@@ -1,0 +1,17 @@
+
+
+
+drawer {
+   display: block;
+   width: 69px;
+   height: 100%;
+   background: var( --dark1 );
+
+   position: fixed;
+   top: 0; left: 0;
+   padding-top: 99px !important;
+}
+
+drawer[closed] {
+   display: none;
+}

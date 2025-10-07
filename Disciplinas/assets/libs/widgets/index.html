@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widgets Flutter em HTML/CSS</title>
+    <link rel="stylesheet" href="./widgets_style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+    <section class="widget-container">
+        <h2>Text</h2>
+        <span class="flutter-text">Conteúdo do Texto</span>
+        <p class="flutter-paragraph">Conteúdo do Parágrafo</p>
+    </section>
+
+    <section class="widget-container">
+        <h2>Image</h2>
+        <img class="flutter-image" src="placeholder.png" alt="Imagem de Exemplo">
+    </section>
+
+    <section class="widget-container">
+        <h2>Icon</h2>
+        <span class="flutter-icon"><i class="material-icons">favorite</i></span>
+    </section>
+
+    <section class="widget-container">
+        <h2>Container</h2>
+        <div class="flutter-container">Conteúdo do Container</div>
+    </section>
+
+    <section class="widget-container">
+        <h2>Row</h2>
+        <div class="flutter-row">
+            <div>Item 1</div>
+            <div>Item 2</div>
+        </div>
+    </section>
+
+    <section class="widget-container">
+        <h2>Column</h2>
+        <div class="flutter-column">
+            <div>Item A</div>
+            <div>Item B</div>
+        </div>
+    </section>
+
+    <section class="widget-container">
+        <h2>Stack</h2>
+        <div class="flutter-stack">
+            <div style="background-color: rgba(255, 0, 0, 0.5); width: 100px; height: 100px; position: absolute; top: 10px; left: 10px;"></div>
+            <div style="background-color: rgba(0, 0, 255, 0.5); width: 80px; height: 80px; position: absolute; top: 30px; left: 30px;"></div>
+        </div>
+    </section>
+
+    <section class="widget-container">
+        <h2>Expanded</h2>
+        <div class="flutter-row">
+            <div style="background-color: lightgray;">Fixo</div>
+            <div class="flutter-expanded" style="background-color: lightblue;">Expandido</div>
+            <div style="background-color: lightgray;">Fixo</div>
+        </div>
+    </section>
+
+    <section class="widget-container">
+        <h2>Padding</h2>
+        <div class="flutter-padding-container">
+            <div class="flutter-padding-content">Conteúdo com Padding</div>
+        </div>
+    </section>
+
+    <section class="widget-container">
+        <h2>Center</h2>
+        <div class="flutter-center-container">
+            <div class="flutter-center-content">Centralizado</div>
+        </div>
+    </section>
+
+    <section class="widget-container">
+        <h2>Align</h2>
+        <div class="flutter-align-container">
+            <div class="flutter-align-content-top-left">TL</div>
+            <div class="flutter-align-content-center">C</div>
+            <div class="flutter-align-content-bottom-right">BR</div>
+        </div>
+    </section>
+
+    <section class="widget-container">
+        <h2>SizedBox</h2>
+        <span class="flutter-sizedbox"></span>
+        Texto após SizedBox
+    </section>
+
+    <section class="widget-container">
+        <h2>AspectRatio</h2>
+        <div class="flutter-aspect-ratio-container">
+            <div class="flutter-aspect-ratio-content">16:9</div>
+        </div>
+    </section>
+
+    <section class="widget-container">
+        <h2>FittedBox</h2>
+        <div class="flutter-fittedbox-container">
+            <img class="flutter-fittedbox-image" src="placeholder.png" alt="Imagem FittedBox">
+        </div>
+    </section>
+
+    <section class="widget-container">
+        <h2>ConstrainedBox</h2>
+        <div class="flutter-constrainedbox">Conteúdo Restrito</div>
+    </section>
+
+    <section class="widget-container">
+        <h2>OverflowBox</h2>
+        <div class="flutter-overflowbox-container">
+            <div class="flutter-overflowbox-content">Conteúdo que pode overflow</div>
+        </div>
+    </section>
+
+    <section class="widget-container">
+        <h2>SliverList (Simulado com Lista)</h2>
+        <div class="flutter-sliverlist-container">
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                </ul>
+        </div>
+    </section>
+
+    <section class="widget-container">
+        <h2>SliverGrid (Simulado com Grid)</h2>
+        <div class="flutter-slivergrid-container">
+            <div>Item 1</div>
+            <div>Item 2</div>
+            <div>Item 3</div>
+            <div>Item 4</div>
+        </div>
+    </section>
+
+    <section class="widget-container">
+        <h2>AppBar</h2>
+        <header class="flutter-appbar">Título do App</header>
+    </section>
+
+    <section class="widget-container">
+        <h2>Scaffold (Estrutura Básica)</h2>
+        <div class="flutter-scaffold">
+            <header class="flutter-appbar">AppBar no Scaffold</header>
+            <main class="flutter-main-content">Conteúdo Principal do Scaffold</main>
+            <footer class="flutter-bottom-navigation-bar">
+                <nav>
+                    <ul>
+                        <li><a href="#">Item 1</a></li>
+                        <li><a href="#">Item 2</a></li>
+                    </ul>
+                </nav>
+            </footer>
+        </div>
+    </section>
+
+    <section class="widget-container">
+        <h2>BottomNavigationBar</h2>
+        <footer class="flutter-bottom-navigation-bar">
+            <nav>
+                <ul>
+                    <li><a href="#">Item 1</a></li>
+                    <li><a href="#">Item 2</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </section>
+
+    <section class="widget-container">
+        <h2>Drawer (Simulado)</h2>
+        <aside class="flutter-drawer">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="#">Opção 1</a></li>
+                <li><a href="#">Opção 2</a></li>
+            </ul>
+        </aside>
+    </section>
+
+    <section class="widget-container">
+        <h2>Card</h2>
+        <div class="flutter-card">Conteúdo do Card</div>
+    </section>
+
+    <section class="widget-container">
+        <h2>Button</h2>
+        <button class="flutter-button">Texto do Botão</button>
+    </section>
+
+    <section class="widget-container">
+        <h2>FloatingActionButton (Simulado)</h2>
+        <button class="flutter-fab">+</button>
+    </section>
+
+    <section class="widget-container">
+        <h2>TextField</h2>
+        <input type="text" class="flutter-textfield" placeholder="Digite algo">
+    </section>
+
+    <section class="widget-container">
+        <h2>Checkbox</h2>
+        <label class="flutter-checkbox-label"><input type="checkbox" class="flutter-checkbox">Opção</label>
+    </section>
+
+    <section class="widget-container">
+        <h2>Radio</h2>
+        <label class="flutter-radio-label"><input type="radio" name="grupo1" class="flutter-radio">Opção 1</label>
+        <label class="flutter-radio-label"><input type="radio" name="grupo1" class="flutter-radio">Opção 2</label>
+    </section>
+
+    <section class="widget-container">
+        <h2>Switch (Simulado com Checkbox Estilizado)</h2>
+        <label class="flutter-switch">
+            <input type="checkbox" class="flutter-switch-input">
+            <span class="flutter-switch-slider"></span>
+        </label>
+    </section>
+
+    <section class="widget-container">
+        <h2>Slider (Simulado com Input Range)</h2>
+        <input type="range" class="flutter-slider">
+    </section>
+
+    <section class="widget-container">
+        <h2>AlertDialog (Simulado)</h2>
+        <div class="flutter-alert-dialog">
+            <h3>Título do Alerta</h3>
+            <p>Mensagem do Alerta.</p>
+            <div class="flutter-alert-actions">
+                <button>OK</button>
+                <button>Cancelar</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="widget-container">
+        <h2>SimpleDialog (Simulado)</h2>
+        <div class="flutter-simple-dialog">
+            <h3>Escolha uma opção</h3>
+            <button>Opção A</button>
+            <button>Opção B</button>
+        </div>
+    </section>
+
+    <section class="widget-container">
+        <h2>SnackBar (Simulado)</h2>
+        <div class="flutter-snackbar">Mensagem Rápida</div>
+    </section>
+
+    <section class="widget-container">
+        <h2>TabBar (Simulado com Abas)</h2>
+        <div class="flutter-tabbar">
+            <button class="tab-button active">Aba 1</button>
+            <button class="tab-button">Aba 2</button>
+        </div>
+        <div class="flutter-tabview">Conteúdo da Aba 1</div>
+        <div class="flutter-tabview hidden">Conteúdo da Aba 2</div>
+    </section>
+
+    <section class="widget-container">
+        <h2>TabView (Simulado - Conteúdo das Abas acima)</h2>
+        </section>
+
+    <section class="widget-container">
+        <h2>ListTile</h2>
+        <div class="flutter-listtile">
+            <div class="leading">👤</div>
+            <div class="title">Título da Lista</div>
+            <div class="subtitle">Subtítulo da Lista</div>
+            <div class="trailing">→</div>
+        </div>
+    </section>
+
+    <section class="widget-container">
+        <h2>Divider</h2>
+        <hr class="flutter-divider">
+    </section>
+
+    <section class="widget-container">
+        <h2>ProgressIndicator (Circular Simulado)</h2>
+        <div class="flutter-circular-progress"></div>
+    </section>
+
+    <section class="widget-container">
+        <h2>Draggable (Simulado)</h2>
+        <div class="flutter-draggable" draggable="true">Arrastar</div>
+        <div class="flutter-dragtarget">Soltar aqui</div>
+    </section>
+
+    <section class="widget-container">
+        <h2>DragTarget</h2>
+        <div class="flutter-dragtarget">Área de Soltar</div>
+    </section>
+
+    <section class="widget-container">
+        <h2>Dismissible (Simulado)</h2>
+        <div class="flutter-dismissible">Deslize para remover</div>
+    </section>
+
+</body>
+</html>

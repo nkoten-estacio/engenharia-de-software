@@ -1,0 +1,670 @@
+
+
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+}
+
+.widget-container {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+/* Text */
+.flutter-text {
+    font-size: 16px;
+    color: black;
+}
+
+.flutter-paragraph {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Image */
+.flutter-image {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Icon */
+.flutter-icon .material-icons {
+    font-size: 24px;
+    color: black;
+}
+
+/* Container */
+.flutter-container {
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+/* Row */
+.flutter-row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: stretch; /* Padrão do Flutter */
+}
+
+.flutter-row > div {
+    padding: 8px;
+    border: 1px solid #eee;
+    background-color: #f0f0f0;
+    border-radius: 3px;
+}
+
+/* Column */
+.flutter-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch; /* Padrão do Flutter */
+}
+
+.flutter-column > div {
+    padding: 8px;
+    border: 1px solid #eee;
+    background-color: #f0f0f0;
+    border-radius: 3px;
+}
+
+/* Stack */
+.flutter-stack {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Expanded */
+.flutter-expanded {
+    flex-grow: 1;
+}
+
+/* Padding */
+.flutter-padding-container {
+    border: 1px dashed #ccc;
+    width: fit-content;
+}
+
+.flutter-padding-content {
+    padding: 8px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+}
+
+/* Center */
+.flutter-center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    border: 1px dashed #ccc;
+}
+
+.flutter-center-content {
+    background-color: #d0d0d0;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+/* Align */
+.flutter-align-container {
+    position: relative;
+    width: 150px;
+    height: 100px;
+    border: 1px dashed #ccc;
+}
+
+.flutter-align-content-top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fdd;
+    padding: 5px;
+}
+
+.flutter-align-content-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #dfd;
+    padding: 5px;
+}
+
+.flutter-align-content-bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #ddf;
+    padding: 5px;
+}
+
+/* SizedBox */
+.flutter-sizedbox {
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+/* AspectRatio */
+.flutter-aspect-ratio-container {
+    width: 150px;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 */
+    background-color: #ccc;
+    position: relative;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.flutter-aspect-ratio-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* FittedBox */
+.flutter-fittedbox-container {
+    width: 100px;
+    height: 80px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.flutter-fittedbox-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Simula o comportamento padrão */
+}
+
+/* ConstrainedBox */
+.flutter-constrainedbox {
+    min-width: 50px;
+    max-width: 200px;
+    min-height: 30px;
+    max-height: 100px;
+    background-color: #f0f8ff;
+    padding: 10px;
+    border: 1px solid #add8e6;
+    border-radius: 3px;
+}
+
+/* OverflowBox */
+.flutter-overflowbox-container {
+    width: 100px
+    height: 100px;
+    border: 1px solid #ccc;
+    overflow: visible;
+    position: relative;
+}
+
+.flutter-overflowbox-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background-color: #ffe0b2;
+    border: 1px solid #ffb74d;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SliverList */
+.flutter-sliverlist-container {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    overflow-y: auto;
+    max-height: 150px;
+}
+
+.flutter-sliverlist-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.flutter-sliverlist-container li {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.flutter-sliverlist-container li:last-child {
+    border-bottom: none;
+}
+
+/* SliverGrid */
+.flutter-slivergrid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    gap: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.flutter-slivergrid-container > div {
+    background-color: #e0f7fa;
+    padding: 8px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+/* AppBar */
+.flutter-appbar {
+    background-color: #3f51b5;
+    color: white;
+    padding: 16px;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Scaffold */
+.flutter-scaffold {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.flutter-main-content {
+    padding: 16px;
+    flex-grow: 1;
+    background-color: #f9f9f9;
+}
+
+/* BottomNavigationBar */
+.flutter-bottom-navigation-bar {
+    background-color: #f5f5f5;
+    padding: 8px 0;
+    border-top: 1px solid #e0e0e0;
+}
+
+.flutter-bottom-navigation-bar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.flutter-bottom-navigation-bar nav a {
+    text-decoration: none;
+    color: #757575;
+    padding: 8px;
+}
+
+/* Drawer */
+.flutter-drawer {
+    width: 240px;
+    background-color: white;
+    border-right: 1px solid #ccc;
+    padding: 16px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.flutter-drawer h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.flutter-drawer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.flutter-drawer li a {
+    display: block;
+    padding: 8px 0;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+
+.flutter-drawer li a:last-child {
+    border-bottom: none;
+}
+
+/* Card */
+.flutter-card {
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+}
+
+/* Button */
+.flutter-button {
+    background-color: #3f51b5;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+/* FloatingActionButton */
+.flutter-fab {
+    background-color: #f50057;
+    color: white;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative; /* Para o exemplo no HTML */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* TextField */
+.flutter-textfield {
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 200px;
+}
+
+/* Checkbox */
+.flutter-checkbox-label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.flutter-checkbox {
+    margin-right: 8px;
+}
+
+/* Radio */
+.flutter-radio-label {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.flutter-radio {
+    margin-right: 8px;
+}
+
+/* Switch */
+.flutter-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.flutter-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.flutter-switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.flutter-switch-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.flutter-switch input:checked + .flutter-switch-slider {
+    background-color: #4caf50;
+}
+
+.flutter-switch input:focus + .flutter-switch-slider {
+    box-shadow: 0 0 1px #4caf50;
+}
+
+.flutter-switch input:checked + .flutter-switch-slider:before {
+    transform: translateX(20px);
+}
+
+/* Slider */
+.flutter-slider {
+    width: 200px;
+}
+
+/* AlertDialog */
+.flutter-alert-dialog {
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    padding: 16px;
+    width: 300px;
+}
+
+.flutter-alert-dialog h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.flutter-alert-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.flutter-alert-actions button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* SimpleDialog */
+.flutter-simple-dialog {
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    padding: 16px;
+    width: 250px;
+}
+
+.flutter-simple-dialog h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.flutter-simple-dialog button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.flutter-simple-dialog button:hover {
+    background-color: #f0f0f0;
+}
+
+/* SnackBar */
+.flutter-snackbar {
+    background-color: #323232;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+/* TabBar */
+.flutter-tabbar {
+    display: flex;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ccc;
+}
+
+.tab-button {
+    background-color: transparent;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.tab-button.active {
+    border-bottom: 2px solid #3f51b5;
+    color: #3f51b5;
+}
+
+/* TabView */
+.flutter-tabview {
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.flutter-tabview.hidden {
+    display: none;
+}
+
+/* ListTile */
+.flutter-listtile {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.flutter-listtile:last-child {
+    border-bottom: none;
+}
+
+.flutter-listtile .leading {
+    margin-right: 16px;
+    font-size: 24px;
+    color: #757575;
+}
+
+.flutter-listtile .title {
+    font-size: 16px;
+    color: #333;
+    flex-grow: 1;
+}
+
+.flutter-listtile .subtitle {
+    font-size: 14px;
+    color: #757575;
+}
+
+.flutter-listtile .trailing {
+    margin-left: 16px;
+    font-size: 20px;
+    color: #757575;
+}
+
+/* Divider */
+.flutter-divider {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 16px 0;
+}
+
+/* ProgressIndicator (Circular Simulado) */
+.flutter-circular-progress {
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid #3f51b5; /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Draggable */
+.flutter-draggable {
+    background-color: #bbdefb;
+    padding: 10px;
+    border: 1px solid #64b5f6;
+    border-radius: 4px;
+    cursor: grab;
+    margin-bottom: 10px;
+}
+
+/* DragTarget */
+.flutter-dragtarget {
+    background-color: #e0f2f7;
+    border: 2px dashed #4dd0e1;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Dismissible */
+.flutter-dismissible {
+    background-color: #ffcdd2;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    border: 1px solid #e57373;
+}
+

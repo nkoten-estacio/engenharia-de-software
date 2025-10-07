@@ -1,0 +1,43 @@
+
+
+appbar {
+   z-index: 9;
+   
+   display: block;
+   width: 100%;
+   height: 98px;
+   position: sticky;
+   top: 0; left: 0;
+   background: #16181c;
+   box-shadow: #16181c 0 0 0 6px;
+   filter: drop-shadow( #0009 0 0 5px );
+   border-bottom-left-radius: 2rem;
+   border-bottom-right-radius: 2rem;
+   border-bottom: #da0 5px dashed;
+   border-left: #da0 5px dashed;
+   border-right: #da0 5px dashed;
+}
+appbar-body {
+   display: grid;
+   grid-template-columns: auto 1fr auto;
+   width: 98.5%;
+   height: 81px;
+   margin: 0 auto !important;
+   background: #1b1d22;
+   box-shadow: #1b1d22 0 0 0 6px;
+   filter: drop-shadow( #0009 0 0 5px );
+   border-bottom-left-radius: 7ch;
+   border-bottom-right-radius: 7ch;
+   border-bottom: #313339 5px dashed;
+   border-left: #313339 5px dashed;
+   border-right: #313339 5px dashed;
+}
+appbar-body > t1 {
+   color: #e9e6e3;
+   display: grid;
+   place-items: center;
+}
+
+appbar-options {
+   cursor: pointer;
+}

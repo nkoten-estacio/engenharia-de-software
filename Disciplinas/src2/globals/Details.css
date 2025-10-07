@@ -1,0 +1,24 @@
+
+
+dt {
+   display: grid;
+   margin: 2vw auto !important;
+   border-radius: 2vw;
+   overflow: auto;
+}
+
+dt :first-child {
+   background: var( --blue-estacio-1, purple );
+   height: 100%;
+   width: 100%;
+   margin: 0;
+   padding: 2vw;
+}
+dt :last-child {
+   background: #1b1d22;
+   width: 100%;
+   margin: 0 auto;
+   padding: 2vw;
+   display: none;
+   visibility: collapse;
+}

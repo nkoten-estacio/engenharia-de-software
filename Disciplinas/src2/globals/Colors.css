@@ -1,0 +1,55 @@
+
+
+:root {
+   --dark0: #16181c;   
+   --dark1: #1b1d22;
+   --dark2: #212329;   
+   --dark3: #505257;
+
+   --light0:#ffffff;  
+   --f5:    #f5f5f5;
+   --light1:#eeeeee;
+
+   --pink:  #990055;   
+   --red:   #ce3635;
+   --azul:  #2277ff;   
+   --green: #006400;   
+   --blue:  #149cbe;
+   --texto: #e9e6e3;
+
+   --amber-0: #996600;
+   --amber-1: #ffab00;   
+
+   --green-dark:  #8b6d19;  
+   --green-light: #a17d1a;    
+   --green-bg:    #fbf6e9;
+
+   --purple-dark: #603479; 
+   --purple-light:#965bb9;   
+   --purple-bg:   #f4edf7;
+
+   --red-dark:    #902726;    
+   --red-light:   #b83232;      
+   --red-bg:      #fceeee;
+
+   --blue-dark:   #1c5b6e;   
+   --blue-light:  #267d97;     
+   --blue-bg:     #ebf6fb;
+
+   --blue-estacio: #00384a;
+   --blue-estacio-1: #006699;
+   --blue-estacio-2: #4db4ba;
+   --blue-estacio-3: #dddddd;
+}
+
+/* [general] {
+   --bg: #60347955;
+}
+
+[e1] {
+   --bg: #27f;
+}
+
+ex {
+   background: var( --bg, var( --pink, #27f ) );
+} */

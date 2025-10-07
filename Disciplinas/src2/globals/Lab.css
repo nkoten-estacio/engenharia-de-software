@@ -1,0 +1,26 @@
+
+
+body {
+   background: var( --dark1 );
+   
+}
+main {
+   display: grid;
+   gap: 4vw;
+}
+
+page {
+   background: var( --dark2 );
+   border-radius: 2rem;
+   width: 95%;
+   margin: 0 auto;
+   padding: 5vw;
+}
+
+qna {
+   border-radius: 2vw;
+   box-shadow: #eee5 0 0 0 2px;
+   width: 100%;
+   display: block;
+   padding: 2vw;
+}

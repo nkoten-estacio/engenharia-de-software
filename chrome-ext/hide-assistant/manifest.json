@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Estácio Hide Assistant",
+  "version": "1.0",
+  "description": "Oculta a janela da assistente na página inicial da Estácio.",
+  "content_scripts": [
+    {
+      "matches": ["https://estudante.estacio.br/disciplinas/*"],
+      "js": ["content.js"],
+      "css": ["style.css"]
+    }
+  ]
+}
