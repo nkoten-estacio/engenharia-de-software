@@ -45,7 +45,7 @@ function GeminiChat() {
 
   return (
     <div className="flex flex-col justify-center p-8 bg-white rounded-[10px] drop-shadow-lg">
-      <h1 className="text-2xl font-bold mb-4 bg-blue-600 ">{ data.gemchatTitle }</h1>
+      <h1 className="text-2xl font-bold mb-4">{ data.gemchatTitle }</h1>
       <div className="flex w-full max-w-lg mb-4">
         <input
           type="text"
