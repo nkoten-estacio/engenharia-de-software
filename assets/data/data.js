@@ -1,4 +1,9 @@
 
 export const data = {
-  gemchatTitle: "bgslkd",
+  gemchat: {
+    title: "bgslkd",
+  },
+  appbar: {
+    title: 'Tema 1 - Fundamentos da Arquitetura de Sistemas',
+  },
 };
