@@ -87,6 +87,20 @@ function AppBar({ ...props }) {
   );
 }
 
+function SideBar( { ...props } ) {
+  return( <>
+    <aside className="sidebar">
+      <header>
+        <img src={ data.logo } />
+      </header>
+      <main>
+      </main>
+      <footer>
+      </footer>
+    </aside>
+  </> );
+}
+
 function Page( { ...props } ) {
   return( <>
     <main className="page">
@@ -242,6 +256,7 @@ function App() {
 
   return( <>
     <AppBar title={ data?.appbar?.title || 'titulo' } label="Prova AV" left="<-" />
+    <SideBar />
     <Page>
       <QuestionArea>
         {/* {questions && <Questions questions={questions} />} */}
