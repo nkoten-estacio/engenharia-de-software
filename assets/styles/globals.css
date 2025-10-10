@@ -62,6 +62,7 @@ body {
   top: 0;
   left: 0;
   display: flex;
+  flex-flow: column;
   align-items: center;
   justify-content: center;
   background: #16181c;

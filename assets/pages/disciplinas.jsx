@@ -94,6 +94,7 @@ function SideBar( { ...props } ) {
         <img src={ data.logo } />
       </header>
       <main>
+        <Text children="text" as="Text" />
       </main>
       <footer>
       </footer>
@@ -109,6 +110,18 @@ function Page( { ...props } ) {
       </article>
     </main>
   </> );
+}
+
+function View( { children, as = "div", ...props } ) {
+   const Element = as;
+   return <Element { ...props }>{ children }</Element>;
+}
+
+function Text( { children, as = 'span', ...props } ) {
+  const Element = as;
+  return(
+    <Element { ...props }>{ children }</Element>
+  );
 }
 
 function QuestionArea({ ...props }) {
