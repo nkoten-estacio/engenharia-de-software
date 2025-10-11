@@ -4,10 +4,11 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { createRoot } from "react-dom/client";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { data } from "data";
+import { questions } from 'arquitetura-de-sistemas'; 
 // import { questions, disciplina } from "questions";
 
 // ⚠️ Substitua 'SUA_CHAVE_DE_API_AQUI' pela sua chave de API do Gemini
-const API_KEY = 'AIzaSyBu6byWYbe7RPXN3qHHbkxeZmVpIF5I6';
+const API_KEY = 'AIzaSyBu6byWYbe7RPXN3qHHbkxeZmVpIF5I6Wo';
       
 // 🎯 Configuração do Gemini
 const genAI = new GoogleGenerativeAI(API_KEY);
@@ -75,7 +76,8 @@ function AppBar({ ...props }) {
   return (
     <div className="appbar main">
       <div className="left">
-        { props?.left || '<-' }
+        {/* { props?.left || '<-' } */}
+        <Text as="button" onClick={ () => props.act( !props.actvalue ) }>oi</Text>
       </div>
       <div className="center">
         { props?.title || 'titulo' }
@@ -89,8 +91,8 @@ function AppBar({ ...props }) {
 
 function SideBar( { ...props } ) {
   return( <>
-    <aside className="sidebar">
-      <header>
+    <View as="sidebar">
+      <header onClick={ () => props.act( !props.actvalue ) }>
         <img src={ data.logo } />
       </header>
       <main>
@@ -98,7 +100,7 @@ function SideBar( { ...props } ) {
       </main>
       <footer>
       </footer>
-    </aside>
+    </View>
   </> );
 }
 
@@ -123,6 +125,56 @@ function Text( { children, as = 'span', ...props } ) {
     <Element { ...props }>{ children }</Element>
   );
 }
+
+function Pressable( { onPress, style, children, ...props } ) {
+  const [pressed, setPressed] = useState(false);
+
+  // Se style for função, chamamos com { pressed }
+  const resolvedStyle =
+    typeof style === "function" ? style({ pressed }) : style;
+
+  return (
+    <button
+      onClick={onPress}
+      onMouseDown={() => setPressed(true)}
+      onMouseUp={() => setPressed(false)}
+      onMouseLeave={() => setPressed(false)}
+      onTouchStart={() => setPressed(true)}
+      onTouchEnd={() => setPressed(false)}
+      style={{
+        background: "transparent",
+        border: "none",
+        cursor: "pointer",
+        padding: 0,
+        opacity: pressed ? 0.6 : 1,
+        transition: "opacity 0.15s, background-color 0.15s",
+        ...resolvedStyle,
+      }}
+      {...props}
+    >
+      {typeof children === "function" ? children({ pressed }) : children}
+    </button>
+  );
+}
+
+const TextInput = ({ value, onChangeText, style, ...props }) => (
+  <input
+    value={value}
+    onChange={(e) => onChangeText && onChangeText(e.target.value)}
+    style={{ padding: "6px 8px", ...style }}
+    {...props}
+  />
+);
+
+const Switch = ({ value, onValueChange, style, ...props }) => (
+  <input
+    type="checkbox"
+    checked={value}
+    onChange={(e) => onValueChange && onValueChange(e.target.checked)}
+    style={style}
+    {...props}
+  />
+);
 
 function QuestionArea({ ...props }) {
   return( <>
@@ -259,25 +311,30 @@ function ExtraBtns() {
 
 // == [ App() ] ==-==-==
 function App() {
+  const [ isSideBarActive, setIsSideBarActive ] = useState( false );
+
   const sectionRefs = useRef([]);
   /* Criar as refs para 10 sections */
-  useEffect(() => {
+  useEffect( () => {
     sectionRefs.current = Array(10)
       .fill()
       .map((_, i) => sectionRefs.current[i] || React.createRef());
-  }, []);
+  }, [] );
 
   return( <>
-    <AppBar title={ data?.appbar?.title || 'titulo' } label="Prova AV" left="<-" />
-    <SideBar />
+    <AppBar title={ data?.appbar?.title || 'titulo' } label="Prova AV" left={ `<-` } act={ setIsSideBarActive } actvalue={ isSideBarActive } />
+    { isSideBarActive && <SideBar act={ setIsSideBarActive } actvalue={ isSideBarActive }/> }
     <Page>
       <QuestionArea>
-        {/* {questions && <Questions questions={questions} />} */}
+        {questions && <Questions questions={questions} />}
         <GeminiChat />
+        <Pressable onClick={ () => prompt( 'oi' ) }>oi</Pressable>
+        <Switch />
+        <TextInput />
       </QuestionArea>
     </Page>
   </> );
 }
 
       
-createRoot(document.querySelector("app")).render(<App />);
+createRoot(document.querySelector("#app")).render(<App />);
