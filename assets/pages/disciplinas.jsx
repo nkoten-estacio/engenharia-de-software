@@ -1,11 +1,77 @@
 
 
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef, useCallback, createContext, useContext } from "react";
 import { createRoot } from "react-dom/client";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { data } from "data";
 import { questions } from 'arquitetura-de-sistemas'; 
 // import { questions, disciplina } from "questions";
+
+/**
+ * == [ theme switcher ] 
+ * */ 
+// Cria o Contexto com um valor padrão
+const ThemeContext = createContext();
+
+// Cria um Provider para envolver sua aplicação
+export const ThemeProvider = ({ children }) => {
+    // 1. Defina o estado do tema. Use o localStorage para persistir a escolha do usuário.
+    const [theme, setTheme] = useState(() => {
+        const savedTheme = localStorage.getItem('theme');
+        return savedTheme || 'light';
+    });
+
+    // 2. Use useEffect para atualizar a classe do body
+    useEffect(() => {
+        document.body.className = theme;
+        // Salve a preferência do usuário no localStorage
+        localStorage.setItem('theme', theme);
+    }, [theme]); // Este efeito roda sempre que o 'theme' muda
+
+    // 3. Crie a função para alternar o tema
+    const toggleTheme = () => {
+        setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+    };
+
+    // 4. Forneça o estado e a função para os componentes filhos
+    const value = { theme, toggleTheme };
+
+    return (
+        <ThemeContext.Provider value={value}>
+            {children}
+        </ThemeContext.Provider>
+    );
+};
+
+// Cria um hook customizado para facilitar o uso
+export const useTheme = () => {
+    return useContext(ThemeContext);
+};
+
+export function ThemeSwitch() {
+    // Obtenha o estado do tema e a função para alterná-lo do contexto
+    const { theme, toggleTheme } = useTheme();
+
+    return (
+        <button
+            onClick={toggleTheme}
+            className="theme-switch-btn"
+            style={{
+                // Estilos básicos, você pode usar Tailwind ou CSS classes aqui
+                background: 'transparent',
+                border: '1px solid #ccc',
+                padding: '8px 12px',
+                borderRadius: '5px',
+                cursor: 'pointer',
+                color: theme === 'light' ? '#333' : '#eee',
+                backgroundColor: theme === 'light' ? '#fff' : '#444',
+            }}
+        >
+            {theme === 'light' ? 'Modo Escuro' : 'Modo Claro'}
+        </button>
+    );
+}
+/* -- theme switcher */ 
 
 // ⚠️ Substitua 'SUA_CHAVE_DE_API_AQUI' pela sua chave de API do Gemini
 const API_KEY = 'AIzaSyBu6byWYbe7RPXN3qHHbkxeZmVpIF5I6Wo';
@@ -99,6 +165,7 @@ function SideBar( { ...props } ) {
         <Text children="text" as="Text" />
       </main>
       <footer>
+        <ThemeSwitch />
       </footer>
     </View>
   </> );
@@ -321,7 +388,7 @@ function App() {
       .map((_, i) => sectionRefs.current[i] || React.createRef());
   }, [] );
 
-  return( <>
+  return( <ThemeProvider>
     <AppBar title={ data?.appbar?.title || 'titulo' } label="Prova AV" left={ `<-` } act={ setIsSideBarActive } actvalue={ isSideBarActive } />
     { isSideBarActive && <SideBar act={ setIsSideBarActive } actvalue={ isSideBarActive }/> }
     <Page>
@@ -333,7 +400,7 @@ function App() {
         <TextInput />
       </QuestionArea>
     </Page>
-  </> );
+  </ThemeProvider> );
 }
 
       
