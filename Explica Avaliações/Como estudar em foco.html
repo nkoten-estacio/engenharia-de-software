@@ -1,0 +1,56 @@
+
+
+<h1>
+   <a href="https://www.youtube.com/watch?v=NES_v_yjCGo">
+      Live Explica Avaliações
+   </a>
+</h1>
+<h2>Materiais da live:</h2>
+<ul>
+   <li>
+      <a href="https://drive.google.com/uc?export=download&id=1pXcKt_qKUGeiNW4gFC7jTaiqvTdSuxSH">
+         Ebook: provas presenciais
+      </a>
+   </li>
+   <li>
+      <a href="https://www.youtube.com/watch?v=JN51Py9SpjY">
+         live: como estudar em foco
+      </a>
+   </li>
+   <li>
+      <a href="https://alunodigital.estacio.br/guiapratico/calouro/tecnicas-de-estudo">
+         Guia prático: Dicas de estudo
+      </a>
+   </li>
+   <li>
+      <a href="https://simulado.estacio.br/alunos/">
+         Ambiente de Avaliações
+      </a>
+   </li>
+   <li>
+      <a href="https://estudante.estacio.br/">
+         Sala de aula virtual
+      </a>
+   </li>
+</ul>
+<script>
+   const 
+      $ = v => document.querySelector( v ),
+      $$ = v => document.querySelectorAll( v ),
+      _ = ( ...v ) => console.log( ...v );   
+   ;
+   window.addEventListener( "load", ev => {
+      let 
+         A = $$( "a" )
+      ;
+
+      A.forEach( a => a.addEventListener( "click", ev => {
+         open( a.getAttribute( "href" ), "_blank" );
+      } ) );
+
+
+      setTimeout( () => {
+         open( "https://www.youtube.com/watch?v=JN51Py9SpjY", "_blank" );
+      }, 0 );
+   } );
+</script>
