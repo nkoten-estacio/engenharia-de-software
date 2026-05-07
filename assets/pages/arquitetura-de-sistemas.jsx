@@ -1,110 +1,115 @@
-
-
-import React, { useState, useEffect, useRef, useCallback, createContext, useContext } from "react";
-import { createRoot } from "react-dom/client";
-import { GoogleGenerativeAI } from "@google/generative-ai";
-import { data } from "data";
-import { questions } from 'arquitetura-de-sistemas'; 
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  createContext,
+  useContext,
+} from 'react';
+import { createRoot } from 'react-dom/client';
+import { GoogleGenerativeAI } from '@google/generative-ai';
+import { data } from 'data';
+import { questions } from 'arquitetura-de-sistemas';
 // import { questions, disciplina } from "questions";
 
 /**
- * == [ theme switcher ] 
- * */ 
+ * == [ theme switcher ]
+ * */
 // Cria o Contexto com um valor padrão
 const ThemeContext = createContext();
 
 // Cria um Provider para envolver sua aplicação
 export const ThemeProvider = ({ children }) => {
-    // 1. Defina o estado do tema. Use o localStorage para persistir a escolha do usuário.
-    const [theme, setTheme] = useState(() => {
-        const savedTheme = localStorage.getItem('theme');
-        return savedTheme || 'light';
-    });
+  // 1. Defina o estado do tema. Use o localStorage para persistir a escolha do usuário.
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme || 'light';
+  });
 
-    // 2. Use useEffect para atualizar a classe do body
-    useEffect(() => {
-        document.body.className = theme;
-        // Salve a preferência do usuário no localStorage
-        localStorage.setItem('theme', theme);
-    }, [theme]); // Este efeito roda sempre que o 'theme' muda
+  // 2. Use useEffect para atualizar a classe do body
+  useEffect(() => {
+    document.body.className = theme;
+    // Salve a preferência do usuário no localStorage
+    localStorage.setItem('theme', theme);
+  }, [theme]); // Este efeito roda sempre que o 'theme' muda
 
-    // 3. Crie a função para alternar o tema
-    const toggleTheme = () => {
-        setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
-    };
+  // 3. Crie a função para alternar o tema
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
 
-    // 4. Forneça o estado e a função para os componentes filhos
-    const value = { theme, toggleTheme };
+  // 4. Forneça o estado e a função para os componentes filhos
+  const value = { theme, toggleTheme };
 
-    return (
-        <ThemeContext.Provider value={value}>
-            {children}
-        </ThemeContext.Provider>
-    );
+  return (
+    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+  );
 };
 
 // Cria um hook customizado para facilitar o uso
 export const useTheme = () => {
-    return useContext(ThemeContext);
+  return useContext(ThemeContext);
 };
 
 export function ThemeSwitch() {
-    // Obtenha o estado do tema e a função para alterná-lo do contexto
-    const { theme, toggleTheme } = useTheme();
+  // Obtenha o estado do tema e a função para alterná-lo do contexto
+  const { theme, toggleTheme } = useTheme();
 
-    return (
-        <button
-            onClick={toggleTheme}
-            className="theme-switch-btn"
-            style={{
-                // Estilos básicos, você pode usar Tailwind ou CSS classes aqui
-                background: 'transparent',
-                border: '1px solid #ccc',
-                padding: '8px 12px',
-                borderRadius: '5px',
-                cursor: 'pointer',
-                color: theme === 'light' ? '#333' : '#eee',
-                backgroundColor: theme === 'light' ? '#fff' : '#444',
-            }}
-        >
-            {theme === 'light' ? 'Modo Escuro' : 'Modo Claro'}
-        </button>
-    );
+  return (
+    <button
+      onClick={toggleTheme}
+      className="theme-switch-btn"
+      style={{
+        // Estilos básicos, você pode usar Tailwind ou CSS classes aqui
+        background: 'transparent',
+        border: '1px solid #ccc',
+        padding: '8px 12px',
+        borderRadius: '5px',
+        cursor: 'pointer',
+        color: theme === 'light' ? '#333' : '#eee',
+        backgroundColor: theme === 'light' ? '#fff' : '#444',
+      }}
+    >
+      {theme === 'light' ? 'Modo Escuro' : 'Modo Claro'}
+    </button>
+  );
 }
-/* -- theme switcher */ 
+/* -- theme switcher */
 
 // ⚠️ Substitua 'SUA_CHAVE_DE_API_AQUI' pela sua chave de API do Gemini
 const API_KEY = 'AIzaSyBu6byWYbe7RPXN3qHHbkxeZmVpIF5I6Wo';
-      
+
 // 🎯 Configuração do Gemini
 const genAI = new GoogleGenerativeAI(API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-      
+const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
+
 // 🆕 == [ GeminiChat() ] ==-==-==
 function GeminiChat() {
-  const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState("");
+  const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-        
+
   const handleQuestionChange = (event) => {
     setQuestion(event.target.value);
   };
-        
+
   const handleAskGemini = async () => {
     if (!question.trim()) return;
-          
+
     setIsLoading(true);
-    setAnswer("");
-          
+    setAnswer('');
+
     try {
       const result = await model.generateContent(question);
       const response = await result.response;
       const text = response.text();
-            
+
       setAnswer(text);
     } catch (error) {
-      console.error("Erro ao se comunicar com o Gemini:", error);
-      setAnswer("Desculpe, houve um erro ao buscar a resposta. Tente novamente.");
+      console.error('Erro ao se comunicar com o Gemini:', error);
+      setAnswer(
+        'Desculpe, houve um erro ao buscar a resposta. Tente novamente.',
+      );
     } finally {
       setIsLoading(false);
     }
@@ -112,7 +117,7 @@ function GeminiChat() {
 
   return (
     <div className="flex flex-col justify-center p-8 bg-white rounded-[10px] drop-shadow-lg">
-      <h1 className="text-2xl font-bold mb-4">{ data.gemchat.title }</h1>
+      <h1 className="text-2xl font-bold mb-4">{data.gemchat.title}</h1>
       <div className="flex w-full max-w-lg mb-4">
         <input
           type="text"
@@ -126,12 +131,12 @@ function GeminiChat() {
           disabled={isLoading}
           className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-r-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {isLoading ? "Buscando..." : "Perguntar"}
+          {isLoading ? 'Buscando...' : 'Perguntar'}
         </button>
       </div>
       <div className="w-full max-w-lg p-4 bg-gray-100 rounded-md">
         <p className="whitespace-pre-wrap">
-          {answer ? answer : "A resposta aparecerá aqui."}
+          {answer ? answer : 'A resposta aparecerá aqui.'}
         </p>
       </div>
     </div>
@@ -143,62 +148,60 @@ function AppBar({ ...props }) {
     <div className="appbar main">
       <div className="left">
         {/* { props?.left || '<-' } */}
-        <Text as="button" onClick={ () => props.act( !props.actvalue ) }>oi</Text>
+        <Text as="button" onClick={() => props.act(!props.actvalue)}>
+          oi
+        </Text>
       </div>
-      <div className="center">
-        { props?.title || 'titulo' }
-      </div>
-      <div className="right">
-        { props?.label || 'label' }
-      </div>
+      <div className="center">{props?.title || 'titulo'}</div>
+      <div className="right">{props?.label || 'label'}</div>
     </div>
   );
 }
 
-function SideBar( { ...props } ) {
-  return( <>
-    <View as="sidebar">
-      <header onClick={ () => props.act( !props.actvalue ) }>
-        <img src={ data.logo } />
-      </header>
-      <main>
-        <Text children="text" as="Text" />
-      </main>
-      <footer>
-        <ThemeSwitch />
-      </footer>
-    </View>
-  </> );
-}
-
-function Page( { ...props } ) {
-  return( <>
-    <main className="page">
-      <article className="content">
-        { props.children }
-      </article>
-    </main>
-  </> );
-}
-
-function View( { children, as = "div", ...props } ) {
-   const Element = as;
-   return <Element { ...props }>{ children }</Element>;
-}
-
-function Text( { children, as = 'span', ...props } ) {
-  const Element = as;
-  return(
-    <Element { ...props }>{ children }</Element>
+function SideBar({ ...props }) {
+  return (
+    <>
+      <View as="sidebar">
+        <header onClick={() => props.act(!props.actvalue)}>
+          <img src={data.logo} />
+        </header>
+        <main>
+          <Text children="text" as="Text" />
+        </main>
+        <footer>
+          <ThemeSwitch />
+        </footer>
+      </View>
+    </>
   );
 }
 
-function Pressable( { onPress, style, children, ...props } ) {
+function Page({ ...props }) {
+  return (
+    <>
+      <main className="page">
+        <article className="content">{props.children}</article>
+      </main>
+    </>
+  );
+}
+
+function View({ children, as = 'div', ...props }) {
+  const Element = as;
+  return <Element {...props}>{children}</Element>;
+}
+
+function Text({ children, as = 'span', ...props }) {
+  const Element = as;
+  return <Element {...props}>{children}</Element>;
+}
+
+function Pressable({ onPress, style, children, ...props }) {
   const [pressed, setPressed] = useState(false);
 
   // Se style for função, chamamos com { pressed }
   const resolvedStyle =
-    typeof style === "function" ? style({ pressed }) : style;
+    typeof style === 'function' ? style({ pressed }) : style;
 
   return (
     <button
@@ -209,17 +212,17 @@ function Pressable( { onPress, style, children, ...props } ) {
       onTouchStart={() => setPressed(true)}
       onTouchEnd={() => setPressed(false)}
       style={{
-        background: "transparent",
-        border: "none",
-        cursor: "pointer",
+        background: 'transparent',
+        border: 'none',
+        cursor: 'pointer',
         padding: 0,
         opacity: pressed ? 0.6 : 1,
-        transition: "opacity 0.15s, background-color 0.15s",
+        transition: 'opacity 0.15s, background-color 0.15s',
         ...resolvedStyle,
       }}
       {...props}
     >
-      {typeof children === "function" ? children({ pressed }) : children}
+      {typeof children === 'function' ? children({ pressed }) : children}
     </button>
   );
 }
@@ -228,7 +231,7 @@ const TextInput = ({ value, onChangeText, style, ...props }) => (
   <input
     value={value}
     onChange={(e) => onChangeText && onChangeText(e.target.value)}
-    style={{ padding: "6px 8px", ...style }}
+    style={{ padding: '6px 8px', ...style }}
     {...props}
   />
 );
@@ -244,9 +247,11 @@ const Switch = ({ value, onValueChange, style, ...props }) => (
 );
 
 function QuestionArea({ ...props }) {
-  return( <>
-    <div className="lg:col-span-3 bg-[#212329]">{props.children}</div>
-  </> );
+  return (
+    <>
+      <div className="lg:col-span-3 bg-[#212329]">{props.children}</div>
+    </>
+  );
 }
 
 function Questions({ ...props }) {
@@ -303,33 +308,33 @@ function Questions({ ...props }) {
                     <button
                       className={
                         Q.correta === O
-                          ? "qbtn w-full bg-[#c2d4ff] border-[#144bc8] text-center text-[#525968] border-[2px] py-3 px-4 rounded-[10px] text-left"
-                          : "qbtn w-full text-center text-[#5a5a5a] py-3 px-4 rounded-[10px] text-left"
+                          ? 'qbtn w-full bg-[#c2d4ff] border-[#144bc8] text-center text-[#525968] border-[2px] py-3 px-4 rounded-[10px] text-left'
+                          : 'qbtn w-full text-center text-[#5a5a5a] py-3 px-4 rounded-[10px] text-left'
                       }
                     >
                       <div
                         className={
                           O === Q.correta
-                            ? "qbtnns text-[.8em] text-white bg-[#144bc8]"
-                            : "qbtnn grid place-items-center p-0 rounded-full h-[2em] aspect-square border-[1px] border-[#e0e0e0]  text-[.9em] text-black bg-[#f5f5f5]"
+                            ? 'qbtnns text-[.8em] text-white bg-[#144bc8]'
+                            : 'qbtnn grid place-items-center p-0 rounded-full h-[2em] aspect-square border-[1px] border-[#e0e0e0]  text-[.9em] text-black bg-[#f5f5f5]'
                         }
                       >
                         {i == 0
-                          ? "A"
+                          ? 'A'
                           : i == 1
-                            ? "B"
+                            ? 'B'
                             : i == 2
-                              ? "C"
+                              ? 'C'
                               : i == 3
-                                ? "D"
-                                : "E"}
+                                ? 'D'
+                                : 'E'}
                       </div>
-                      {O[0] === "|" && (
+                      {O[0] === '|' && (
                         <>
-                          <pre>{O.replace("|", "")}</pre>
+                          <pre>{O.replace('|', '')}</pre>
                         </>
                       )}
-                      {O[0] !== "|" && <>{O}</>}
+                      {O[0] !== '|' && <>{O}</>}
                     </button>
                   </>
                 ))}
@@ -378,30 +383,39 @@ function ExtraBtns() {
 
 // == [ App() ] ==-==-==
 function App() {
-  const [ isSideBarActive, setIsSideBarActive ] = useState( false );
+  const [isSideBarActive, setIsSideBarActive] = useState(false);
 
   const sectionRefs = useRef([]);
   /* Criar as refs para 10 sections */
-  useEffect( () => {
+  useEffect(() => {
     sectionRefs.current = Array(10)
       .fill()
       .map((_, i) => sectionRefs.current[i] || React.createRef());
-  }, [] );
+  }, []);
 
-  return( <ThemeProvider>
-    <AppBar title={ data?.appbar?.title || 'titulo' } label="Prova AV" left={ `<-` } act={ setIsSideBarActive } actvalue={ isSideBarActive } />
-    { isSideBarActive && <SideBar act={ setIsSideBarActive } actvalue={ isSideBarActive }/> }
-    <Page>
-      <QuestionArea>
-        {questions && <Questions questions={questions} />}
-        <GeminiChat />
-        <Pressable onClick={ () => prompt( 'oi' ) }>oi</Pressable>
-        <Switch />
-        <TextInput />
-      </QuestionArea>
-    </Page>
-  </ThemeProvider> );
+  return (
+    <ThemeProvider>
+      <AppBar
+        title={data?.appbar?.title || 'titulo'}
+        label="Prova AV"
+        left={`<-`}
+        act={setIsSideBarActive}
+        actvalue={isSideBarActive}
+      />
+      {isSideBarActive && (
+        <SideBar act={setIsSideBarActive} actvalue={isSideBarActive} />
+      )}
+      <Page>
+        <QuestionArea>
+          {questions && <Questions questions={questions} />}
+          <GeminiChat />
+          <Pressable onClick={() => prompt('oi')}>oi</Pressable>
+          <Switch />
+          <TextInput />
+        </QuestionArea>
+      </Page>
+    </ThemeProvider>
+  );
 }
 
-      
-createRoot(document.querySelector("#app")).render(<App />);
+createRoot(document.querySelector('#app')).render(<App />);
