@@ -12,7 +12,7 @@ export default function Semetre2026_1({}) {
       <Helmet>
         <title>Sala de Aula | Estacio</title>
       </Helmet>
-      <page className="flex flex-row w-full h-[100dvh] bg-white text-slate-600 hover:text-indigo-600"></page>
+      <page className="flex flex-row w-full h-[100dvh] bg-[#f5f5f5] text-slate-600 hover:text-indigo-600"></page>
     </>
   );
 }
